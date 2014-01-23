@@ -167,10 +167,6 @@ export UBUNTU_MENUPROXY=0
 # eclipse 4.x sometimes crashes with overlay scrollbar
 export LIBOVERLAY_SCROLLBAR=0
 
-# switch caps lock and escape
-# http://askubuntu.com/questions/363346/how-to-permanently-switch-caps-lock-and-esc
-# is dealt with by ubuntu atm
-/usr/bin/setxkbmap -option "caps:swapescape"
 
 # --- IntelliJ ---
 # INTELLIJ_HOME=/opt/intellij/idea-IC-129.1359
