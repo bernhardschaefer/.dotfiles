@@ -139,6 +139,9 @@ function up {
 }
 
 
+# http://askubuntu.com/questions/184397/how-do-i-pipe-terminal-standard-output-stdout-to-the-clipboard
+alias copy='xsel -ib'
+
 # VIM stuff
 export EDITOR=/usr/bin/vim
 
