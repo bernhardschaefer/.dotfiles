@@ -22,8 +22,10 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
 Bundle 'wincent/Command-T'
 Bundle 'jnurmine/Zenburn'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'kien/ctrlp.vim'
+" deactivate YouCompleteMe since issues with Latex Plugin
+" Bundle 'Valloric/YouCompleteMe'
+Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
 " Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -96,8 +98,6 @@ set backupdir=~/.vim/backup
 
 " show row numbers
 set number
-" decrease row numbers width
-set numberwidth=2
 
 " C-Space for completion
 inoremap <C-Space> <C-x><C-o>
@@ -110,7 +110,7 @@ set clipboard=unnamedplus
 set wildmode=longest,list,full
 
 " no line wrapping
-set nowrap
+" set nowrap
 
 " from http://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
 if has("gui_running")
@@ -158,6 +158,14 @@ let NERDTreeIgnore = ['\.pyc$']
 
 " shortcut for NERDTree
 nmap <leader>ne :NERDTree<cr>
+
+" ----- LatexBox -----
+
+" line wrapping for latex
+set wrap
+
+" shortcut for LatexTOCToggle
+nmap <leader>l :LatexTOCToggle<cr>
 
 
 " ----- DEFAULT VIMRC ----- 
