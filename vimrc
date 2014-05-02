@@ -26,6 +26,8 @@ Bundle 'kien/ctrlp.vim'
 " deactivate YouCompleteMe since issues with Latex Plugin
 " Bundle 'Valloric/YouCompleteMe'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
+" solarized color scheme
+Bundle 'altercation/vim-colors-solarized'
 
 " Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -47,7 +49,7 @@ let mapleader = ","
 let g:mapleader = ","
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap <leader>w :w<cr>
 
 " :w!! sudo saves the file 
 " (useful for handling the permission-denied error)
@@ -122,14 +124,18 @@ endif
 " ----- COLOR SCHEME -----
 syntax on
 
-if !has('gui_running')
-  set term=screen-256color
-endif
+" solarized
+set background=dark
+colorscheme solarized
+
+"if !has('gui_running')
+  "set term=screen-256color
+"endif
 " zenburn on gvim against computer vision syndrome
 " this is important to be before loading the
-set t_Co=256 
-let g:zenburn_high_Contrast=1 
-colors zenburn
+"set t_Co=256 
+"let g:zenburn_high_Contrast=1 
+"colors zenburn
 
 " ----- INDENTATION -----
 " http://stackoverflow.com/questions/2861627/paste-in-insert-mode
@@ -166,6 +172,8 @@ set wrap
 
 " shortcut for LatexTOCToggle
 nmap <leader>l :LatexTOCToggle<cr>
+nmap <leader>m :Latexmk<cr>
+nmap <leader>c :w<cr> :Latexmk<cr>
 
 
 " ----- DEFAULT VIMRC ----- 
