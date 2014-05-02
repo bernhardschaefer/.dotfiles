@@ -157,6 +157,10 @@ export EDITOR=/usr/bin/vim
 #bind -m vi-insert "\C-e.":end-of-line
 #bind -m vi-insert "\C-w.":backward-kill-word
 
+# solarized dircolors
+# https://github.com/seebi/dircolors-solarized
+eval $(dircolors ~/.dir_colors)
+
 export JAVA_HOME=/opt/Oracle_Java/jdk1.7.0_latest
 
 # maven
