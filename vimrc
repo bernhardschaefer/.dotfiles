@@ -24,7 +24,7 @@ Bundle 'wincent/Command-T'
 Bundle 'jnurmine/Zenburn'
 Bundle 'kien/ctrlp.vim'
 " deactivate YouCompleteMe since issues with Latex Plugin
-" Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 " solarized color scheme
 Bundle 'altercation/vim-colors-solarized'
@@ -118,7 +118,7 @@ set wildmode=longest,list,full
 if has("gui_running")
   " GUI is running or is about to start.
   " Maximize gvim window.
-  set lines=200 columns=120
+  set lines=999 columns=999
 endif
 
 " ----- COLOR SCHEME -----
