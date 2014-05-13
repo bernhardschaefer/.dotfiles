@@ -23,8 +23,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'wincent/Command-T'
 Bundle 'jnurmine/Zenburn'
 Bundle 'kien/ctrlp.vim'
-" deactivate YouCompleteMe since issues with Latex Plugin
-Bundle 'Valloric/YouCompleteMe'
+" deactivate YouCompleteMe since too annoying with natural text
+" Bundle 'Valloric/YouCompleteMe'
 Bundle 'LaTeX-Box-Team/LaTeX-Box'
 " solarized color scheme
 Bundle 'altercation/vim-colors-solarized'
