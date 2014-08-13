@@ -2,19 +2,12 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-
 " VUNDLE
-filetype off                  " required!
+filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-" let Vundle manage Vundle
-" required! 
 Bundle 'gmarik/vundle'
 
-" My bundles here:
-"
-" original repos on GitHub
-" most stars repos: https://github.com/search?o=desc&q=language%3AVim&s=stars&type=Repositories
 Bundle 'scrooloose/nerdtree'
 " syntax checking plugin
 Bundle 'scrooloose/syntastic'
@@ -24,9 +17,8 @@ Bundle 'wincent/Command-T'
 Bundle 'jnurmine/Zenburn'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Valloric/YouCompleteMe'
-" Bundle 'LaTeX-Box-Team/LaTeX-Box'
-" solarized color scheme
 Bundle 'altercation/vim-colors-solarized'
+" Bundle 'LaTeX-Box-Team/LaTeX-Box'
 
 " Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -42,24 +34,16 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 
-" With a map leader it's possible to do extra key combinations
-" like <leader>w saves the current file
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
 nmap <leader>w :w<cr>
 
-" :w!! sudo saves the file 
-" (useful for handling the permission-denied error)
 cmap w!! w !sudo tee > /dev/null %
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set 7 lines to the cursor - when moving vertically using j/k
-" set so=7
-" better: use zt, zz, zb to move cursor to top of screen etc.
 
 " Turn on the WiLd menu
 set wildmenu
@@ -86,6 +70,7 @@ set incsearch
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ----- OWN CUSTOM STUFF ----- 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " store .swap files in dedicated directory
 " http://stackoverflow.com/questions/4331776/change-vim-swap-backup-undo-file-name/4331812#4331812
@@ -175,11 +160,6 @@ nmap <leader>c :w<cr> :Latexmk<cr>
 " ----- DEFAULT VIMRC ----- 
 
 " set showcmd    " display incomplete commands
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-" if has('mouse')
-"   set mouse=a
-" endif
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
