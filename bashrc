@@ -174,52 +174,12 @@ export UBUNTU_MENUPROXY=0
 # eclipse 4.x sometimes crashes with overlay scrollbar
 export LIBOVERLAY_SCROLLBAR=0
 
+ANDROID_SDK_HOME=/opt/android/latest/sdk
+export PATH=$PATH:$ANDROID_SDK_HOME/tools
+export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools
 
-# --- IntelliJ ---
-# INTELLIJ_HOME=/opt/intellij/idea-IC-129.1359
-# export PATH=$PATH:$INTELLIJ_HOME/bin
+export HADOOP_PREFIX=/opt/hadoop/latest
+export PATH=$PATH:$HADOOP_PREFIX/bin
 
-# export RAPIDMINER_HOME=/opt/rapidminer
-# export PATH=$PATH:$RAPIDMINER_HOME/scripts
-
-# export PATH=$PATH:/home/bernhard/glassfish3/bin
-
-# export PATH=$PATH:/opt/node-v0.8.15-linux-x64/bin
-
-# aliases
-# alias asl='asadmin list-applications'
-# alias asd='asadmin deploy'
-# alias asu='asadmin undeploy'
-
-# PLAY_HOME=/opt/play-2.2.0
-# export PATH=$PATH:$PLAY_HOME
-
-# # HADOOP STUFF
-# # Set Hadoop-related environment variables
-# export HADOOP_PREFIX=/opt/hadoop/hadoop
-# 
-# # Some convenient aliases and functions for running Hadoop-related commands
-# unalias fs &> /dev/null
-# alias fs="hadoop fs"
-# unalias hls &> /dev/null
-# alias hls="fs -ls"
-# 
-# # If you have LZO compression enabled in your Hadoop cluster and
-# # compress job outputs with LZOP (not covered in this tutorial):
-# # Conveniently inspect an LZOP compressed file from the command
-# # line; run via:
-# #
-# # $ lzohead /hdfs/path/to/lzop/compressed/file.lzo
-# #
-# # Requires installed 'lzop' command.
-# #
-# lzohead () {
-#     hadoop fs -cat $1 | lzop -dc | head -1000 | less
-# }
-# 
-# # Add Hadoop bin/ directory to PATH
-# export PATH=$PATH:$HADOOP_PREFIX/bin
-# 
-# # PIG STUFF
-# PIG_HOME=/opt/pig/pig-0.12.0
-# export PATH=$PATH:$PIG_HOME/bin
+PIG_HOME=/opt/pig/pig-latest
+export PATH=$PATH:$PIG_HOME/bin
