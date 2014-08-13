@@ -23,9 +23,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'wincent/Command-T'
 Bundle 'jnurmine/Zenburn'
 Bundle 'kien/ctrlp.vim'
-" deactivate YouCompleteMe since too annoying with natural text
-" Bundle 'Valloric/YouCompleteMe'
-Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Bundle 'Valloric/YouCompleteMe'
+" Bundle 'LaTeX-Box-Team/LaTeX-Box'
 " solarized color scheme
 Bundle 'altercation/vim-colors-solarized'
 
@@ -112,13 +111,13 @@ set clipboard=unnamedplus
 set wildmode=longest,list,full
 
 " no line wrapping
-" set nowrap
+set nowrap
 
 " from http://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
 if has("gui_running")
   " GUI is running or is about to start.
-  " Maximize gvim window.
-  set lines=999 columns=999
+  " Increase gvim window size.
+  set lines=30 columns=100
 endif
 
 " ----- COLOR SCHEME -----
@@ -166,9 +165,6 @@ let NERDTreeIgnore = ['\.pyc$']
 nmap <leader>ne :NERDTree<cr>
 
 " ----- LatexBox -----
-
-" line wrapping for latex
-set wrap
 
 " shortcut for LatexTOCToggle
 nmap <leader>l :LatexTOCToggle<cr>
