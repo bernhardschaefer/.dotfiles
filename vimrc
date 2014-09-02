@@ -4,21 +4,23 @@ set nocompatible
 
 " VUNDLE
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/vundle'
 
-Bundle 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 " syntax checking plugin
-Bundle 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
 " git wrapper with commands such as :Gstatus (see :help fugitive)
-Bundle 'tpope/vim-fugitive'
-Bundle 'wincent/Command-T'
-Bundle 'jnurmine/Zenburn'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'altercation/vim-colors-solarized'
-" Bundle 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'tpope/vim-fugitive'
+Plugin 'wincent/Command-T'
+Plugin 'jnurmine/Zenburn'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
+" Plugin 'LaTeX-Box-Team/LaTeX-Box'
+
+call vundle#end()
 
 " Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -80,6 +82,9 @@ endif
 set directory=~/.vim/swap//
 
 " store tilde '~' backup files in dedicated directory
+if isdirectory($HOME . '/.vim/backup') == 0
+  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+endif
 set backupdir=~/.vim/backup
 
 " show row numbers
