@@ -19,6 +19,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'bernhardschaefer/changesqlcase.vim'
 
 call vundle#end()
 
@@ -136,16 +137,10 @@ set autoindent
 " set smartindent
 
 " default settings for all not specified files
-set tabstop=4
-set softtabstop=2
-set shiftwidth=4
-set noexpandtab
-
-autocmd FileType html setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType css setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType htmldjango setlocal expandtab shiftwidth=2 softtabstop=2
-autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-autocmd FileType javascript setlocal expandtab shiftwidth=2 softtabstop=2
+set tabstop=2      " the width of a \t is set to 2 (only affects how \t is displayed)
+set softtabstop=2  " the number of columns for a \t
+set shiftwidth=2   " indent have a width of 2
+set expandtab " expand tab to spaces
 
 " ----- NERDTree -----
 " don't show .pyc files in tree
@@ -161,6 +156,8 @@ nmap <leader>l :LatexTOCToggle<cr>
 nmap <leader>m :Latexmk<cr>
 nmap <leader>c :w<cr> :Latexmk<cr>
 
+" ----- changesqlcase -----
+vmap <leader>uc :call ChangeSqlCase()<cr>
 
 " ----- DEFAULT VIMRC ----- 
 
