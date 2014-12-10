@@ -159,27 +159,38 @@ export EDITOR=/usr/bin/vim
 
 # solarized dircolors
 # https://github.com/seebi/dircolors-solarized
-eval $(dircolors ~/.dir_colors)
+#eval $(dircolors ~/.dir_colors)
 
-export JAVA_HOME=/opt/Oracle_Java/jdk1.7.0_latest
+export JAVA_HOME=/usr/lib/jvm/default-java
+export PATH=$PATH:$JAVA_HOME/bin
 
-# maven
-export M2_HOME=/usr/share/maven
+## maven
+#export M2_HOME=/usr/share/maven
 
 ECLIPSE_HOME=/opt/eclipse/eclipse-default
 export PATH=$PATH:$ECLIPSE_HOME
 
-# eclipse global menu bug
-export UBUNTU_MENUPROXY=0
-# eclipse 4.x sometimes crashes with overlay scrollbar
-export LIBOVERLAY_SCROLLBAR=0
+## eclipse global menu bug
+#export UBUNTU_MENUPROXY=0
+## eclipse 4.x sometimes crashes with overlay scrollbar
+#export LIBOVERLAY_SCROLLBAR=0
+#
+#ANDROID_SDK_HOME=/opt/android/latest/sdk
+#export PATH=$PATH:$ANDROID_SDK_HOME/tools
+#export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools
+#
 
-ANDROID_SDK_HOME=/opt/android/latest/sdk
-export PATH=$PATH:$ANDROID_SDK_HOME/tools
-export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools
+# --- Hadoop Settings ---
+SETTINGS_DIR=~/ws/git/psd-dwh-ops/rex/files/etc
 
-export HADOOP_PREFIX=/opt/hadoop/latest
+export HADOOP_CONF_DIR=$SETTINGS_DIR/hadoop/conf.stage
+export HADOOP_PREFIX=/opt/hadoop/hadoop-active
 export PATH=$PATH:$HADOOP_PREFIX/bin
 
-PIG_HOME=/opt/pig/pig-latest
+# TODO pig configuration
+export PIG_HOME=/opt/hadoop/pig-active
 export PATH=$PATH:$PIG_HOME/bin
+
+export HIVE_CONF_DIR=$SETTINGS_DIR/hive/conf.stage
+export HIVE_HOME=/opt/hadoop/hive-active
+export PATH=$PATH:$HIVE_HOME/bin
