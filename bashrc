@@ -159,7 +159,13 @@ export EDITOR=/usr/bin/vim
 
 # solarized dircolors
 # https://github.com/seebi/dircolors-solarized
-#eval $(dircolors ~/.dir_colors)
+DIRCOLORS_DIR=~/ws/git/dircolors-solarized
+if [ ! -d "$DIRCOLORS_DIR" ]; then
+  mkdir -p "$DIRCOLORS_DIR"
+  git clone https://github.com/seebi/dircolors-solarized.git $DIRCOLORS_DIR
+  ln -s $DIRCOLORS_DIR/dircolors.ansi-universal ~/.dir_colors
+  eval $(dircolors ~/.dir_colors)
+fi 
 
 export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$PATH:$JAVA_HOME/bin
