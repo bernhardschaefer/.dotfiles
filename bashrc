@@ -170,9 +170,13 @@ fi
 export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$PATH:$JAVA_HOME/bin
 
-## maven
+# --- Maven ---
+
+# recommended maven opts for building spark (https://spark.apache.org/docs/latest/building-spark.html#setting-up-mavens-memory-usage)
+export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m"
 #export M2_HOME=/usr/share/maven
 
+# --- Eclipse --- 
 ECLIPSE_HOME=/opt/eclipse/eclipse-default
 export PATH=$PATH:$ECLIPSE_HOME
 
@@ -197,6 +201,9 @@ export PATH=$PATH:$HADOOP_PREFIX/bin
 export PIG_HOME=/opt/hadoop/pig-active
 export PATH=$PATH:$PIG_HOME/bin
 
-export HIVE_CONF_DIR=$SETTINGS_DIR/hive/conf.stage
+#export HIVE_CONF_DIR=$SETTINGS_DIR/hive/conf.stage
 export HIVE_HOME=/opt/hadoop/hive-active
 export PATH=$PATH:$HIVE_HOME/bin
+
+# --- R Settings ---
+# export R_LIBS="/home/$USER/ws/R_libs"
