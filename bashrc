@@ -160,10 +160,22 @@ export PATH=$PATH:$JAVA_HOME/bin
 # -- Powerline ---
 export TERM="screen-256color"
 
+POWERLINE_DIR=/usr/local/lib/python2.7/dist-packages/powerline
+if [ ! -d "$POWERLINE_DIR" ]; then
+  sudo pip install powerline-status
+  # install font
+  wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+  sudo mv -v PowerlineSymbols.otf /usr/local/share/fonts/
+  sudo fc-cache -f -v
+  # configure font
+  wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+  mkdir -p ~/.config/fontconfig/fonts.conf
+  mv -v 10-powerline-symbols.conf ~/.config/fontconfig/fonts.conf/
+fi
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+source $POWERLINE_DIR/bindings/bash/powerline.sh
 
 # --- Maven ---
 
