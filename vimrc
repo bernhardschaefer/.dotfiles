@@ -3,6 +3,9 @@
 set nocompatible
 
 " VUNDLE
+" Installation
+"  1. git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"  2. vim +PluginInstall +qall
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -14,14 +17,20 @@ Plugin 'scrooloose/syntastic'
 " git wrapper with commands such as :Gstatus (see :help fugitive)
 Plugin 'tpope/vim-fugitive'
 Plugin 'wincent/Command-T'
-Plugin 'jnurmine/Zenburn'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'altercation/vim-colors-solarized'
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
-Plugin 'bernhardschaefer/changesqlcase.vim'
 
 call vundle#end()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Powerline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+set laststatus=2
 
 " Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -47,6 +56,13 @@ cmap w!! w !sudo tee > /dev/null %
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" ----- COLOR SCHEME -----
+syntax on
+set background=dark
+let g:solarized_termcolors=16
+" solarized colorscheme
+colorscheme solarized
 
 " Turn on the WiLd menu
 set wildmenu
@@ -104,29 +120,6 @@ set wildmode=longest,list,full
 " no line wrapping
 set nowrap
 
-" from http://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
-if has("gui_running")
-  " GUI is running or is about to start.
-  " Increase gvim window size.
-  set lines=30 columns=100
-endif
-
-" ----- COLOR SCHEME -----
-syntax on
-
-" solarized
-set background=dark
-colorscheme solarized
-
-"if !has('gui_running')
-  "set term=screen-256color
-"endif
-" zenburn on gvim against computer vision syndrome
-" this is important to be before loading the
-"set t_Co=256 
-"let g:zenburn_high_Contrast=1 
-"colors zenburn
-
 " ----- INDENTATION -----
 " http://stackoverflow.com/questions/2861627/paste-in-insert-mode
 " autoindent copies the indentation from the previous line
@@ -137,9 +130,9 @@ set autoindent
 " set smartindent
 
 " default settings for all not specified files
-set tabstop=2      " the width of a \t is set to 2 (only affects how \t is displayed)
-set softtabstop=2  " the number of columns for a \t
-set shiftwidth=2   " indent have a width of 2
+set tabstop=4      " the width of a \t is set to 4 (only affects how \t is displayed)
+set softtabstop=4  " the number of columns for a \t
+set shiftwidth=4   " indent have a width of 4
 set expandtab " expand tab to spaces
 
 " ----- NERDTree -----
@@ -156,8 +149,20 @@ nmap <leader>l :LatexTOCToggle<cr>
 nmap <leader>m :Latexmk<cr>
 nmap <leader>c :w<cr> :Latexmk<cr>
 
-" ----- changesqlcase -----
-vmap <leader>uc :call ChangeSqlCase()<cr>
+" ----- GVIM SETTINGS -----
+if has("gui_running")
+  set guifont=Monospace\ 11
+  
+  set guioptions-=m  "remove menu bar
+  set guioptions-=T  "remove toolbar
+  set guioptions-=r  "remove right-hand scroll bar
+  set guioptions-=L  "remove left-hand scroll bar
+
+  " from http://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
+  " GUI is running or is about to start.
+  " Increase gvim window size.
+  set lines=30 columns=100
+endif
 
 " ----- DEFAULT VIMRC ----- 
 

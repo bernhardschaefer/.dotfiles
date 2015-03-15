@@ -142,20 +142,8 @@ function up {
 # http://askubuntu.com/questions/184397/how-do-i-pipe-terminal-standard-output-stdout-to-the-clipboard
 alias copy='xsel -ib'
 
-# VIM stuff
+# use vim as editor
 export EDITOR=/usr/bin/vim
-
-# 256 colors to enable zenburn
-# disabled for now
-# export TERM=xterm-256color  # for common 256 color terminals
-
-#set -o vi # enable vim syntax in command line
-#set -o vi
-#bind -m vi-command ".":insert-last-argument
-#bind -m vi-insert "\C-l.":clear-screen
-#bind -m vi-insert "\C-a.":beginning-of-line
-#bind -m vi-insert "\C-e.":end-of-line
-#bind -m vi-insert "\C-w.":backward-kill-word
 
 # solarized dircolors
 # https://github.com/seebi/dircolors-solarized
@@ -163,12 +151,19 @@ DIRCOLORS_DIR=~/ws/git/dircolors-solarized
 if [ ! -d "$DIRCOLORS_DIR" ]; then
   mkdir -p "$DIRCOLORS_DIR"
   git clone https://github.com/seebi/dircolors-solarized.git $DIRCOLORS_DIR
-  ln -s $DIRCOLORS_DIR/dircolors.ansi-universal ~/.dir_colors
-  eval $(dircolors ~/.dir_colors)
 fi 
+eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-dark)
 
 export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$PATH:$JAVA_HOME/bin
+
+# -- Powerline ---
+export TERM="screen-256color"
+
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 
 # --- Maven ---
 
@@ -198,12 +193,12 @@ export HADOOP_PREFIX=/opt/hadoop/hadoop-active
 export PATH=$PATH:$HADOOP_PREFIX/bin
 
 # TODO pig configuration
-export PIG_HOME=/opt/hadoop/pig-active
-export PATH=$PATH:$PIG_HOME/bin
+#export PIG_HOME=/opt/hadoop/pig-active
+#export PATH=$PATH:$PIG_HOME/bin
 
 #export HIVE_CONF_DIR=$SETTINGS_DIR/hive/conf.stage
-export HIVE_HOME=/opt/hadoop/hive-active
-export PATH=$PATH:$HIVE_HOME/bin
+#export HIVE_HOME=/opt/hadoop/hive-active
+#export PATH=$PATH:$HIVE_HOME/bin
 
 # --- R Settings ---
 # export R_LIBS="/home/$USER/ws/R_libs"
