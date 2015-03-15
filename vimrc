@@ -12,14 +12,28 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 Plugin 'scrooloose/nerdtree'
+
 " syntax checking plugin
 Plugin 'scrooloose/syntastic'
+
 " git wrapper with commands such as :Gstatus (see :help fugitive)
 Plugin 'tpope/vim-fugitive'
+
+" opening files with a minimal number of keystrokes
+" Build as follows:
+" cd ~/.vim/bundle/Command-T/ruby/command-t
+" ruby extconf.rb
+" make
 Plugin 'wincent/Command-T'
+
+" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
 Plugin 'kien/ctrlp.vim'
+
+" Completion
 Plugin 'Valloric/YouCompleteMe'
+
 Plugin 'altercation/vim-colors-solarized'
+
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 call vundle#end()
