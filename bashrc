@@ -158,10 +158,11 @@ export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$PATH:$JAVA_HOME/bin
 
 # -- Powerline ---
-export TERM="screen-256color"
+export TERM=xterm-256color
 
 POWERLINE_DIR=/usr/local/lib/python2.7/dist-packages/powerline
 if [ ! -d "$POWERLINE_DIR" ]; then
+  sudo apt-get install socat python-psutil
   sudo pip install powerline-status
   # install font
   wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf

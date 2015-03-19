@@ -44,7 +44,9 @@ call vundle#end()
 python from powerline.vim import setup as powerline_setup
 python powerline_setup()
 python del powerline_setup
-set laststatus=2
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -147,7 +149,7 @@ set autoindent
 set tabstop=4      " the width of a \t is set to 4 (only affects how \t is displayed)
 set softtabstop=4  " the number of columns for a \t
 set shiftwidth=4   " indent have a width of 4
-set expandtab " expand tab to spaces
+set noexpandtab " do not expand tab to spaces
 
 " ----- NERDTree -----
 " don't show .pyc files in tree
