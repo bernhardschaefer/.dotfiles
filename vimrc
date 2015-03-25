@@ -149,7 +149,7 @@ set autoindent
 set tabstop=4      " the width of a \t is set to 4 (only affects how \t is displayed)
 set softtabstop=4  " the number of columns for a \t
 set shiftwidth=4   " indent have a width of 4
-set noexpandtab " do not expand tab to spaces
+set expandtab " expand tab to spaces
 
 " ----- NERDTree -----
 " don't show .pyc files in tree
@@ -173,6 +173,7 @@ if has("gui_running")
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
   set guioptions-=L  "remove left-hand scroll bar
+  set guioptions-=e  "remove tab pages
 
   " from http://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
   " GUI is running or is about to start.
