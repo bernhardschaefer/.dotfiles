@@ -78,10 +78,12 @@ alias mv='mv -v'
 
 # mkdir and cd in one command 
 # from http://www.thegeekstuff.com/2008/10/6-awesome-linux-cd-command-hacks-productivity-tip3-for-geeks/
-function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
+mkdircd() { 
+    mkdir -p "$@" && eval cd "\"\$$#\""; 
+}
 
 # up function
-function up {
+up() {
 [ "${1/[^0-9]/}" == "$1" ] && {
         local ups=""
         for i in $(seq 1 $1)
@@ -92,6 +94,13 @@ function up {
         } || echo "usage: up INTEGER"
 }
 
+# add timestamp to script output (http://serverfault.com/a/310104/218536)
+# usage: ./thisscript.sh | adddate >> /var/log/logfile
+adddate() {
+    while IFS= read -r line; do
+        echo "$(date +'%F-%T') $line"
+    done
+}
 
 # http://askubuntu.com/questions/184397/how-do-i-pipe-terminal-standard-output-stdout-to-the-clipboard
 alias copy='xsel -ib'
