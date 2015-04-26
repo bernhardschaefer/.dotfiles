@@ -151,6 +151,9 @@ set softtabstop=4  " the number of columns for a \t
 set shiftwidth=4   " indent have a width of 4
 set expandtab " expand tab to spaces
 
+" http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
+nnoremap ,cd :cd %:h<CR>
+
 " ----- NERDTree -----
 " don't show .pyc files in tree
 let NERDTreeIgnore = ['\.pyc$']
