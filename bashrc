@@ -168,6 +168,10 @@ export HADOOP_CONF_DIR=$SETTINGS_DIR/hadoop/conf.stage
 export HADOOP_PREFIX=/opt/hadoop/hadoop-active
 export PATH=$PATH:$HADOOP_PREFIX/bin
 
+# settings for sqoop
+export HADOOP_COMMON_HOME=$HADOOP_PREFIX
+export HADOOP_MAPRED_HOME=$HADOOP_PREFIX
+
 # TODO pig configuration
 #export PIG_HOME=/opt/hadoop/pig-active
 #export PATH=$PATH:$PIG_HOME/bin
