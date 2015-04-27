@@ -164,9 +164,9 @@ nmap <leader>ne :NERDTree<cr>
 " ----- LatexBox -----
 
 " shortcut for LatexTOCToggle
-nmap <leader>l :LatexTOCToggle<cr>
-nmap <leader>m :Latexmk<cr>
-nmap <leader>c :w<cr> :Latexmk<cr>
+" nmap <leader>l :LatexTOCToggle<cr>
+" nmap <leader>m :Latexmk<cr>
+" nmap <leader>c :w<cr> :Latexmk<cr>
 
 " ----- GVIM SETTINGS -----
 if has("gui_running")
