@@ -164,6 +164,8 @@ export PATH=$PATH:$ECLIPSE_HOME
 # --- Hadoop Settings ---
 SETTINGS_DIR=~/ws/git/psd-dwh-ops/rex/files/etc
 
+export HADOOP_USER_NAME=bschaefer
+
 export HADOOP_CONF_DIR=$SETTINGS_DIR/hadoop/conf.stage
 export HADOOP_PREFIX=/opt/hadoop/hadoop-active
 export PATH=$PATH:$HADOOP_PREFIX/bin
