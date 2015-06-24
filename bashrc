@@ -115,7 +115,7 @@ if [ ! -d "$DIRCOLORS_DIR" ]; then
   mkdir -p "$DIRCOLORS_DIR"
   git clone https://github.com/seebi/dircolors-solarized.git $DIRCOLORS_DIR
 fi 
-eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-dark)
+eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-universal)
 
 export JAVA_HOME=/usr/lib/jvm/default-java
 export PATH=$PATH:$JAVA_HOME/bin
@@ -165,6 +165,7 @@ export PATH=$PATH:$ECLIPSE_HOME
 SETTINGS_DIR=~/ws/git/psd-dwh-ops/rex/files/etc
 
 export HADOOP_USER_NAME=bschaefer
+#export HADOOP_USER_NAME=dev_user
 
 export HADOOP_CONF_DIR=$SETTINGS_DIR/hadoop/conf.stage
 export HADOOP_PREFIX=/opt/hadoop/hadoop-active
