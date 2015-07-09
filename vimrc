@@ -152,7 +152,7 @@ set shiftwidth=4   " indent have a width of 4
 set expandtab " expand tab to spaces
 
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
-nnoremap ,cd :cd %:h<CR>
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
 " ----- NERDTree -----
 " don't show .pyc files in tree
