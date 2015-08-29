@@ -161,19 +161,21 @@ export PATH=$PATH:$ECLIPSE_HOME
 #export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools
 #
 
+# --- PDI ---
+export PENTAHO_JAVA_HOME='/usr/lib/jvm/java-1.7.0-openjdk-amd64';
+
 # --- Hadoop Settings ---
-SETTINGS_DIR=~/ws/git/psd-dwh-ops/rex/files/etc
 
 export HADOOP_USER_NAME=bschaefer
 #export HADOOP_USER_NAME=dev_user
 
-export HADOOP_CONF_DIR=$SETTINGS_DIR/hadoop/conf.stage
-export HADOOP_PREFIX=/opt/hadoop/hadoop-active
-export PATH=$PATH:$HADOOP_PREFIX/bin
-
-# settings for sqoop
-export HADOOP_COMMON_HOME=$HADOOP_PREFIX
-export HADOOP_MAPRED_HOME=$HADOOP_PREFIX
+#export HADOOP_CONF_DIR=/etc/hadoop/conf
+#export HADOOP_PREFIX=/opt/hadoop/hadoop-active
+#export PATH=$PATH:$HADOOP_PREFIX/bin
+#
+## settings for sqoop
+#export HADOOP_COMMON_HOME=$HADOOP_PREFIX
+#export HADOOP_MAPRED_HOME=$HADOOP_PREFIX
 
 # TODO pig configuration
 #export PIG_HOME=/opt/hadoop/pig-active

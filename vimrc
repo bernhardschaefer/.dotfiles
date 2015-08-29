@@ -75,7 +75,7 @@ cmap w!! w !sudo tee > /dev/null %
 
 " ----- COLOR SCHEME -----
 syntax on
-set background=dark
+set background=light
 let g:solarized_termcolors=16
 " solarized colorscheme
 colorscheme solarized
