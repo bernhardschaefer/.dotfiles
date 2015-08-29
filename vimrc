@@ -30,6 +30,9 @@ Plugin 'wincent/Command-T'
 Plugin 'kien/ctrlp.vim'
 
 " Completion
+" Installation:
+"   cd ~/.vim/bundle/YouCompleteMe
+"   ./install.sh
 Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'altercation/vim-colors-solarized'

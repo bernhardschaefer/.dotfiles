@@ -123,13 +123,13 @@ export PATH=$PATH:$JAVA_HOME/bin
 # -- Powerline ---
 export TERM=xterm-256color
 
-POWERLINE_DIR=/usr/local/lib/python2.7/dist-packages/powerline
-if [ ! -d "$POWERLINE_DIR" ]; then
+if [ ! hash powerline 2>/dev/null ]; then
   sudo apt-get install socat python-psutil
   sudo pip install powerline-status
   # install font
   wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-  sudo mv -v PowerlineSymbols.otf /usr/local/share/fonts/
+  sudo mkdir -p /usr/share/fonts
+  sudo mv -v PowerlineSymbols.otf /usr/share/fonts/
   sudo fc-cache -f -v
   # configure font
   wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
@@ -139,6 +139,8 @@ fi
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
+POWERLINE_DIR=/usr/local/lib/python2.7/dist-packages/powerline
+#POWERLINE_DIR=/usr/lib/python3.4/site-packages/powerline
 source $POWERLINE_DIR/bindings/bash/powerline.sh
 
 # --- Maven ---
