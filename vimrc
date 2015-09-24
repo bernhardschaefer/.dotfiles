@@ -26,9 +26,6 @@ Plugin 'tpope/vim-fugitive'
 " make
 Plugin 'wincent/Command-T'
 
-" Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
-Plugin 'kien/ctrlp.vim'
-
 " Completion
 " Installation:
 "   cd ~/.vim/bundle/YouCompleteMe
