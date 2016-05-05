@@ -11,14 +11,14 @@ esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+#HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=5000
+HISTFILESIZE=10000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -123,33 +123,15 @@ export PATH=$PATH:$JAVA_HOME/bin
 # -- Powerline ---
 export TERM=xterm-256color
 
-if [ ! hash powerline 2>/dev/null ]; then
-  sudo apt-get install socat python-psutil
-  sudo pip install powerline-status
-  # install font
-  wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-  sudo mkdir -p /usr/share/fonts
-  sudo mv -v PowerlineSymbols.otf /usr/share/fonts/
-  sudo fc-cache -f -v
-  # configure font
-  wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-  mkdir -p ~/.config/fontconfig/fonts.conf
-  mv -v 10-powerline-symbols.conf ~/.config/fontconfig/fonts.conf/
-fi
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-POWERLINE_DIR=/usr/local/lib/python2.7/dist-packages/powerline
-#POWERLINE_DIR=/usr/lib/python3.4/site-packages/powerline
-source $POWERLINE_DIR/bindings/bash/powerline.sh
-
 # --- Maven ---
 
-# recommended maven opts for building spark (https://spark.apache.org/docs/latest/building-spark.html#setting-up-mavens-memory-usage)
+# recommended maven opts for building spark (http://spark.apache.org/docs/latest/building-spark.html#setting-up-mavens-memory-usage)
 export MAVEN_OPTS="-Xmx2g -XX:MaxPermSize=512M -XX:ReservedCodeCacheSize=512m"
-#export M2_HOME=/usr/share/maven
 
-# --- Eclipse --- 
+# -- PS1 ---
+export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
+
+# --- Eclipse ---
 ECLIPSE_HOME=/opt/eclipse/eclipse-default
 export PATH=$PATH:$ECLIPSE_HOME
 
@@ -157,35 +139,24 @@ export PATH=$PATH:$ECLIPSE_HOME
 #export UBUNTU_MENUPROXY=0
 ## eclipse 4.x sometimes crashes with overlay scrollbar
 #export LIBOVERLAY_SCROLLBAR=0
-#
-#ANDROID_SDK_HOME=/opt/android/latest/sdk
-#export PATH=$PATH:$ANDROID_SDK_HOME/tools
-#export PATH=$PATH:$ANDROID_SDK_HOME/platform-tools
-#
-
-# --- PDI ---
-export PENTAHO_JAVA_HOME='/usr/lib/jvm/java-1.7.0-openjdk-amd64';
 
 # --- Hadoop Settings ---
 
 export HADOOP_USER_NAME=bschaefer
-#export HADOOP_USER_NAME=dev_user
-
+export SPARK_LOCAL_IP=127.0.0.1
 #export HADOOP_CONF_DIR=/etc/hadoop/conf
 #export HADOOP_PREFIX=/opt/hadoop/hadoop-active
 #export PATH=$PATH:$HADOOP_PREFIX/bin
-#
 ## settings for sqoop
 #export HADOOP_COMMON_HOME=$HADOOP_PREFIX
 #export HADOOP_MAPRED_HOME=$HADOOP_PREFIX
-
-# TODO pig configuration
-#export PIG_HOME=/opt/hadoop/pig-active
-#export PATH=$PATH:$PIG_HOME/bin
-
+## settings for hive
 #export HIVE_CONF_DIR=$SETTINGS_DIR/hive/conf.stage
 #export HIVE_HOME=/opt/hadoop/hive-active
 #export PATH=$PATH:$HIVE_HOME/bin
 
 # --- R Settings ---
 # export R_LIBS="/home/$USER/ws/R_libs"
+
+# added by Anaconda2 2.5.0 installer
+export PATH="/opt/anaconda/anaconda2/bin:$PATH"
