@@ -76,10 +76,10 @@ fi
 alias cp='cp -v'
 alias mv='mv -v'
 
-# mkdir and cd in one command 
+# mkdir and cd in one command
 # from http://www.thegeekstuff.com/2008/10/6-awesome-linux-cd-command-hacks-productivity-tip3-for-geeks/
-mkdircd() { 
-    mkdir -p "$@" && eval cd "\"\$$#\""; 
+mkdircd() {
+    mkdir -p "$@" && eval cd "\"\$$#\"";
 }
 
 # up function
@@ -114,7 +114,7 @@ DIRCOLORS_DIR=~/ws/git/dircolors-solarized
 if [ ! -d "$DIRCOLORS_DIR" ]; then
   mkdir -p "$DIRCOLORS_DIR"
   git clone https://github.com/seebi/dircolors-solarized.git $DIRCOLORS_DIR
-fi 
+fi
 eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-universal)
 
 export JAVA_HOME=/usr/lib/jvm/default-java
