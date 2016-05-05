@@ -9,7 +9,7 @@ set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree'
 
@@ -34,18 +34,18 @@ Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'altercation/vim-colors-solarized'
 
+Plugin 'bling/vim-airline'
+
 " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Powerline
+" => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+
 set laststatus=2 " Always display the statusline in all windows
-set showtabline=2 " Always display the tabline, even if there is only one tab
+let g:airline_powerline_fonts = 1
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
 " Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
@@ -100,11 +100,11 @@ set hidden
 " Makes search act like search in modern browsers
 set incsearch
 
-" ADD byte offset to status line 
+" ADD byte offset to status line
 " set statusline+=%o
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ----- OWN CUSTOM STUFF ----- 
+" ----- OWN CUSTOM STUFF -----
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " store .swap files in dedicated directory
@@ -154,6 +154,9 @@ set expandtab " expand tab to spaces
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
+" remove trailing whitespace with F5
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 " ----- NERDTree -----
 " don't show .pyc files in tree
 let NERDTreeIgnore = ['\.pyc$']
@@ -171,7 +174,7 @@ nmap <leader>ne :NERDTree<cr>
 " ----- GVIM SETTINGS -----
 if has("gui_running")
   set guifont=Monospace\ 11
-  
+
   set guioptions-=m  "remove menu bar
   set guioptions-=T  "remove toolbar
   set guioptions-=r  "remove right-hand scroll bar
@@ -184,7 +187,7 @@ if has("gui_running")
   set lines=30 columns=100
 endif
 
-" ----- DEFAULT VIMRC ----- 
+" ----- DEFAULT VIMRC -----
 
 " set showcmd    " display incomplete commands
 
