@@ -144,6 +144,10 @@ export PATH=$PATH:$ECLIPSE_HOME
 
 export HADOOP_USER_NAME=bschaefer
 export SPARK_LOCAL_IP=127.0.0.1
+
+export SPARK_HOME=/opt/spark/spark-1.6.1-bin-hadoop2.6
+export PATH=$PATH:$SPARK_HOME/bin
+
 #export HADOOP_CONF_DIR=/etc/hadoop/conf
 #export HADOOP_PREFIX=/opt/hadoop/hadoop-active
 #export PATH=$PATH:$HADOOP_PREFIX/bin
