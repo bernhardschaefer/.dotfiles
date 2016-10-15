@@ -143,24 +143,15 @@ export PATH=$PATH:$ECLIPSE_HOME
 # --- Hadoop Settings ---
 
 export HADOOP_USER_NAME=bschaefer
-export SPARK_LOCAL_IP=127.0.0.1
 
+# Spark settings
+export SPARK_LOCAL_IP=127.0.0.1
+export SPARK_SUBMIT_OPTIONS="--packages com.databricks:spark-csv_2.11:1.4.0"
 export SPARK_HOME=/opt/spark/spark-1.6.1-bin-hadoop2.6
 export PATH=$PATH:$SPARK_HOME/bin
-
-#export HADOOP_CONF_DIR=/etc/hadoop/conf
-#export HADOOP_PREFIX=/opt/hadoop/hadoop-active
-#export PATH=$PATH:$HADOOP_PREFIX/bin
-## settings for sqoop
-#export HADOOP_COMMON_HOME=$HADOOP_PREFIX
-#export HADOOP_MAPRED_HOME=$HADOOP_PREFIX
-## settings for hive
-#export HIVE_CONF_DIR=$SETTINGS_DIR/hive/conf.stage
-#export HIVE_HOME=/opt/hadoop/hive-active
-#export PATH=$PATH:$HIVE_HOME/bin
 
 # --- R Settings ---
 # export R_LIBS="/home/$USER/ws/R_libs"
 
-# added by Anaconda2 2.5.0 installer
+# added by Anaconda2 4.2.0 installer
 export PATH="/opt/anaconda/anaconda2/bin:$PATH"
