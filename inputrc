@@ -2,4 +2,4 @@
 # Cygwin Ctrl + Left/Right Fix:
 # http://superuser.com/questions/488157/how-do-i-make-ctrl-arrow-keys-move-forward-backward-a-word-at-a-time-in-cygwin-b
 "\e[1;5C": forward-word   # ctrl + right
-"\e[1;5D": backward-word  # ctrl + left 
+"\e[1;5D": backward-word  # ctrl + left
