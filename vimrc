@@ -19,20 +19,23 @@ Plugin 'scrooloose/syntastic'
 " git wrapper with commands such as :Gstatus (see :help fugitive)
 Plugin 'tpope/vim-fugitive'
 
-" opening files with a minimal number of keystrokes
-" Build as follows:
-" cd ~/.vim/bundle/Command-T/ruby/command-t
-" ruby extconf.rb
-" make
-Plugin 'wincent/Command-T'
+" disable for cygwin
+if has("unix") && !has("win32unix")
+  " opening files with a minimal number of keystrokes
+  " Build as follows:
+  " cd ~/.vim/bundle/Command-T/ruby/command-t
+  " ruby extconf.rb
+  " make
+  " Plugin 'wincent/Command-T'
 
-" Completion
-" Installation:
-"   cd ~/.vim/bundle/YouCompleteMe
-"   ./install.sh
-Plugin 'Valloric/YouCompleteMe'
+  " Completion
+  " Installation:
+  "   cd ~/.vim/bundle/YouCompleteMe
+  "   ./install.sh
+  " plugin 'Valloric/YouCompleteMe'
 
-Plugin 'altercation/vim-colors-solarized'
+  " Plugin 'altercation/vim-colors-solarized'
+endif
 
 Plugin 'bling/vim-airline'
 
@@ -74,11 +77,15 @@ cmap w!! w !sudo tee > /dev/null %
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " ----- COLOR SCHEME -----
-syntax on
-set background=light
-let g:solarized_termcolors=16
-" solarized colorscheme
-colorscheme solarized
+
+" disable for cygwin
+if has("unix") && !has("win32unix")
+  syntax on
+  set background=light
+  let g:solarized_termcolors=16
+  " solarized colorscheme
+  colorscheme solarized
+endif
 
 " Turn on the WiLd menu
 set wildmenu
