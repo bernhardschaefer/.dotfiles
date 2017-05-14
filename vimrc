@@ -32,9 +32,9 @@ if has("unix") && !has("win32unix")
   " Installation:
   "   cd ~/.vim/bundle/YouCompleteMe
   "   ./install.sh
-  " plugin 'Valloric/YouCompleteMe'
+  " Plugin 'Valloric/YouCompleteMe'
 
-  " Plugin 'altercation/vim-colors-solarized'
+  Plugin 'altercation/vim-colors-solarized'
 endif
 
 Plugin 'bling/vim-airline'
