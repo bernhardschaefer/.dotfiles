@@ -117,9 +117,6 @@ if [ ! -d "$DIRCOLORS_DIR" ]; then
 fi
 eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-universal)
 
-export JAVA_HOME=/usr/lib/jvm/default-java
-export PATH=$PATH:$JAVA_HOME/bin
-
 # -- Powerline ---
 export TERM=xterm-256color
 
