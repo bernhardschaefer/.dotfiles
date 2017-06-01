@@ -37,6 +37,15 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+
+    # solarized dircolors
+    # https://github.com/seebi/dircolors-solarized
+    DIRCOLORS_DIR=~/ws/git/dircolors-solarized
+    if [ ! -d "$DIRCOLORS_DIR" ]; then
+      mkdir -p "$DIRCOLORS_DIR"
+      git clone https://github.com/seebi/dircolors-solarized.git $DIRCOLORS_DIR
+    fi
+    eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-universal)
 fi
 
 # some more ls aliases
@@ -107,15 +116,6 @@ alias copy='xsel -ib'
 
 # use vim as editor
 export EDITOR=/usr/bin/vim
-
-# solarized dircolors
-# https://github.com/seebi/dircolors-solarized
-DIRCOLORS_DIR=~/ws/git/dircolors-solarized
-if [ ! -d "$DIRCOLORS_DIR" ]; then
-  mkdir -p "$DIRCOLORS_DIR"
-  git clone https://github.com/seebi/dircolors-solarized.git $DIRCOLORS_DIR
-fi
-eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-universal)
 
 # -- Powerline ---
 export TERM=xterm-256color
