@@ -131,23 +131,5 @@ export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
 ECLIPSE_HOME=/opt/eclipse/eclipse-default
 export PATH=$PATH:$ECLIPSE_HOME
 
-## eclipse global menu bug
-#export UBUNTU_MENUPROXY=0
-## eclipse 4.x sometimes crashes with overlay scrollbar
-#export LIBOVERLAY_SCROLLBAR=0
-
-# --- Hadoop Settings ---
-
-export HADOOP_USER_NAME=bschaefer
-
 # Spark settings
 export SPARK_LOCAL_IP=127.0.0.1
-export SPARK_SUBMIT_OPTIONS="--packages com.databricks:spark-csv_2.11:1.4.0"
-export SPARK_HOME=/opt/spark/spark-1.6.1-bin-hadoop2.6
-export PATH=$PATH:$SPARK_HOME/bin
-
-# --- R Settings ---
-# export R_LIBS="/home/$USER/ws/R_libs"
-
-# added by Anaconda2 4.2.0 installer
-export PATH="/opt/anaconda/anaconda2/bin:$PATH"
