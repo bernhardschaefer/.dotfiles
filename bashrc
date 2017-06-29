@@ -116,3 +116,8 @@ export PATH=$PATH:$ECLIPSE_HOME
 
 # --- Spark ---
 export SPARK_LOCAL_IP=127.0.0.1
+
+# for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
+export PYSPARK_PYTHON="python3.6"
+export PYSPARK_DRIVER_PYTHON="jupyter"
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --port=8888"
