@@ -101,13 +101,20 @@ adddate() {
 # http://askubuntu.com/questions/184397/how-do-i-pipe-terminal-standard-output-stdout-to-the-clipboard
 alias copy='xsel -ib'
 
-# use vim as editor
-export EDITOR=/usr/bin/vim
+# --- VIM ---
+if [ -x /usr/bin/nvim ]; then
+    # use neovim as editor
+    export EDITOR=/usr/bin/nvim
+    alias vim=$EDITOR
+else
+    # use vim as editor
+    export EDITOR=/usr/bin/vim
+fi
 
-# -- Powerline ---
+# --- Powerline ---
 export TERM=xterm-256color
 
-# -- PS1 ---
+# --- PS1 ---
 export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
 # --- Eclipse ---
