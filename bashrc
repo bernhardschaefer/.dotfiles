@@ -102,14 +102,17 @@ adddate() {
 alias copy='xsel -ib'
 
 # --- VIM ---
+
+# use neovim as editor if found
 if [ -x /usr/bin/nvim ]; then
-    # use neovim as editor
     export EDITOR=/usr/bin/nvim
-    alias vim=$EDITOR
+elif [ -x /usr/local/bin/nvim ]; then
+    export EDITOR=/usr/local/bin/nvim
 else
-    # use vim as editor
     export EDITOR=/usr/bin/vim
 fi
+alias vim=$EDITOR
+
 
 # --- Powerline ---
 export TERM=xterm-256color
