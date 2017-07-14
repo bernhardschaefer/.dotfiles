@@ -43,7 +43,8 @@ if [ -x /usr/bin/dircolors ]; then
     eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-universal)
 fi
 
-if [[ "$OSTYPE" == "darwin16" ]]; then
+# macOS ls color support
+if [[ "$OSTYPE" == "darwin"* ]]; then
     alias ls='ls -G'
 fi
 
