@@ -6,42 +6,45 @@ set nocompatible
 " Installation
 "  1. git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "  2. vim +PluginInstall +qall
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
+    filetype off
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
+    Plugin 'scrooloose/nerdtree'
 
-" syntax checking plugin
-Plugin 'scrooloose/syntastic'
+    " syntax checking plugin
+    Plugin 'scrooloose/syntastic'
 
-" git wrapper with commands such as :Gstatus (see :help fugitive)
-Plugin 'tpope/vim-fugitive'
+    " git wrapper with commands such as :Gstatus (see :help fugitive)
+    Plugin 'tpope/vim-fugitive'
 
-" disable for cygwin
-if has("unix") && !has("win32unix")
-  " opening files with a minimal number of keystrokes
-  " Build as follows:
-  " cd ~/.vim/bundle/Command-T/ruby/command-t
-  " ruby extconf.rb
-  " make
-  " Plugin 'wincent/Command-T'
+    " disable for cygwin
+    if has("unix") && !has("win32unix")
+    " opening files with a minimal number of keystrokes
+    " Build as follows:
+    " cd ~/.vim/bundle/Command-T/ruby/command-t
+    " ruby extconf.rb
+    " make
+    " Plugin 'wincent/Command-T'
 
-  " Completion
-  " Installation:
-  "   cd ~/.vim/bundle/YouCompleteMe
-  "   ./install.sh
-  " Plugin 'Valloric/YouCompleteMe'
+    " Completion
+    " Installation:
+    "   cd ~/.vim/bundle/YouCompleteMe
+    "   ./install.sh
+    " Plugin 'Valloric/YouCompleteMe'
 
-  Plugin 'altercation/vim-colors-solarized'
+    Plugin 'altercation/vim-colors-solarized'
+    endif
+
+    Plugin 'bling/vim-airline'
+
+    " Plugin 'LaTeX-Box-Team/LaTeX-Box'
+
+    call vundle#end()
+
 endif
-
-Plugin 'bling/vim-airline'
-
-" Plugin 'LaTeX-Box-Team/LaTeX-Box'
-
-call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
@@ -79,7 +82,7 @@ cmap w!! w !sudo tee > /dev/null %
 " ----- COLOR SCHEME -----
 
 " disable for cygwin
-if has("unix") && !has("win32unix")
+if has("unix") && !has("win32unix") && isdirectory($HOME . "/.vim/bundle/vim-colors-solarized")
   syntax on
   set background=light
   let g:solarized_termcolors=16
