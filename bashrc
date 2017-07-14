@@ -43,6 +43,10 @@ if [ -x /usr/bin/dircolors ]; then
     eval $(dircolors $DIRCOLORS_DIR/dircolors.ansi-universal)
 fi
 
+if [[ "$OSTYPE" == "darwin16" ]]; then
+    alias ls='ls -G'
+fi
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -58,15 +62,12 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # enable bash_completion
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  elif [ -f /usr/local/etc/bash_completion ]; then
-    . /usr/local/etc/bash_completion
-  fi
-fi
+# Add tab completion for bash completion 2
+if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
+    source "$(brew --prefix)/share/bash-completion/bash_completion";
+elif [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion;
+fi;
 
 # use verbose copy and move by default
 alias cp='cp -v'
