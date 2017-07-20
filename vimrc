@@ -26,20 +26,20 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 
     " disable for cygwin
     if has("unix") && !has("win32unix")
-    " opening files with a minimal number of keystrokes
-    " Build as follows:
-    " cd ~/.vim/bundle/Command-T/ruby/command-t
-    " ruby extconf.rb
-    " make
-    " Plugin 'wincent/Command-T'
+        " opening files with a minimal number of keystrokes
+        " Build as follows:
+        " cd ~/.vim/bundle/Command-T/ruby/command-t
+        " ruby extconf.rb
+        " make
+        " Plugin 'wincent/Command-T'
 
-    " Completion
-    " Installation:
-    "   cd ~/.vim/bundle/YouCompleteMe
-    "   ./install.sh
-    " Plugin 'Valloric/YouCompleteMe'
+        " Completion
+        " Installation:
+        "   cd ~/.vim/bundle/YouCompleteMe
+        "   ./install.sh
+        " Plugin 'Valloric/YouCompleteMe'
 
-    Plugin 'altercation/vim-colors-solarized'
+        Plugin 'altercation/vim-colors-solarized'
     endif
 
     Plugin 'itchyny/lightline.vim'
@@ -87,11 +87,11 @@ cmap w!! w !sudo tee > /dev/null %
 
 " disable for cygwin
 if has("unix") && !has("win32unix") && isdirectory($HOME . "/.vim/bundle/vim-colors-solarized")
-  syntax on
-  set background=light
-  let g:solarized_termcolors=16
-  " solarized colorscheme
-  colorscheme solarized
+    syntax on
+    set background=light
+    let g:solarized_termcolors=16
+    " solarized colorscheme
+    colorscheme solarized
 endif
 
 " Turn on the WiLd menu
@@ -124,13 +124,13 @@ set incsearch
 " store .swap files in dedicated directory
 " http://stackoverflow.com/questions/4331776/change-vim-swap-backup-undo-file-name/4331812#4331812
 if isdirectory($HOME . '/.vim/swap') == 0
-  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+    :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
 endif
 set directory=~/.vim/swap//
 
 " store tilde '~' backup files in dedicated directory
 if isdirectory($HOME . '/.vim/backup') == 0
-  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+    :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
 endif
 set backupdir=~/.vim/backup
 
@@ -187,18 +187,18 @@ nmap <leader>ne :NERDTree<cr>
 
 " ----- GVIM SETTINGS -----
 if has("gui_running")
-  set guifont=Monospace\ 11
+    set guifont=Monospace\ 11
 
-  set guioptions-=m  "remove menu bar
-  set guioptions-=T  "remove toolbar
-  set guioptions-=r  "remove right-hand scroll bar
-  set guioptions-=L  "remove left-hand scroll bar
-  set guioptions-=e  "remove tab pages
+    set guioptions-=m  "remove menu bar
+    set guioptions-=T  "remove toolbar
+    set guioptions-=r  "remove right-hand scroll bar
+    set guioptions-=L  "remove left-hand scroll bar
+    set guioptions-=e  "remove tab pages
 
-  " from http://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
-  " GUI is running or is about to start.
-  " Increase gvim window size.
-  set lines=30 columns=100
+    " from http://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
+    " GUI is running or is about to start.
+    " Increase gvim window size.
+    set lines=30 columns=100
 endif
 
 " ----- DEFAULT VIMRC -----
