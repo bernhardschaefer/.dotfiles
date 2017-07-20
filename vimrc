@@ -2,6 +2,10 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+if has('nvim')
+    runtime! plugin/python_setup.vim
+endif
+
 " VUNDLE
 " Installation
 "  1. git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -38,7 +42,7 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     Plugin 'altercation/vim-colors-solarized'
     endif
 
-    Plugin 'bling/vim-airline'
+    Plugin 'itchyny/lightline.vim'
 
     " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
