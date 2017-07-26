@@ -85,10 +85,11 @@ cmap w!! w !sudo tee > /dev/null %
 
 " ----- COLOR SCHEME -----
 
+set background=dark
+syntax on
+
 " disable for cygwin
 if has("unix") && !has("win32unix") && isdirectory($HOME . "/.vim/bundle/vim-colors-solarized")
-    syntax on
-    set background=light
     let g:solarized_termcolors=16
     " solarized colorscheme
     colorscheme solarized
@@ -140,9 +141,11 @@ set number
 " C-Space for completion
 inoremap <C-Space> <C-x><C-o>
 
+inoremap <Tab> <C-X><C-F>
+
 " automatically yank to clipboard (this means that there is an alias for "+yy
 " --> yy)
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " more bash like completion
 set wildmode=longest,list,full
