@@ -120,11 +120,18 @@ alias vim=$EDITOR
 export TERM=xterm-256color
 
 # --- PS1 ---
-export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
+#export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
+
+# --- Java ---
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
 
 # --- Eclipse ---
 ECLIPSE_HOME=/opt/eclipse/eclipse-default
-export PATH=$PATH:$ECLIPSE_HOME
+if [ -d $ECLIPSE_HOME ]; then
+    export PATH=$PATH:$ECLIPSE_HOME
+fi
 
 # --- Spark ---
 export SPARK_LOCAL_IP=127.0.0.1
@@ -140,6 +147,10 @@ export PYSPARK_DRIVER_PYTHON="jupyter"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --port=8888"
 
 # Anaconda 3
-if [ -d /opt/anaconda/anaconda3 ]; then
+if [ -d /opt/anaconda/anaconda3/bin ]; then
     export PATH=/opt/anaconda/anaconda3/bin:$PATH
 fi
+if [ -d /usr/local/anaconda3/bin ]; then
+    export PATH=/usr/local/anaconda3/bin:"$PATH"
+fi
+

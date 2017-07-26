@@ -52,11 +52,14 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx zsh-syntax-highlighting)
+plugins=(osx vundle zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# install vundle if non-existing
+vundle-init
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -73,8 +76,56 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
+export MAVEN_HOME=/Users/bschaefer/Documents/projekte/rewe/development-toolkit/maven-3.1.1
+export PATH=$MAVEN_HOME/bin:$PATH
+
+# --- VIM ---
+if [ -x /usr/bin/nvim ]; then
+    export EDITOR=/usr/bin/nvim
+elif [ -x /usr/local/bin/nvim ]; then
+    export EDITOR=/usr/local/bin/nvim
+else
+    export EDITOR=/usr/bin/vim
+fi
+if [ -n $EDITOR ]; then
+    alias vim=$EDITOR
+fi
+
+# --- Java ---
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
+# --- Eclipse ---
+ECLIPSE_HOME=/opt/eclipse/eclipse-default
+if [ -d $ECLIPSE_HOME ]; then
+    export PATH=$PATH:$ECLIPSE_HOME
+fi
+
+# --- Spark ---
+export SPARK_LOCAL_IP=127.0.0.1
+if [ -d /opt/spark/spark-default ]; then
+    export SPARK_HOME=/opt/spark/spark-default
+    export PATH=$PATH:$SPARK_HOME/bin
+fi
+
+# for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
+export PYSPARK_PYTHON="python3.5"
+export PYSPARK_DRIVER_PYTHON="jupyter"
+#export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --port=8888"
+
+# Anaconda 3
+if [ -d /opt/anaconda/anaconda3/bin ]; then
+    export PATH=/opt/anaconda/anaconda3/bin:$PATH
+fi
+if [ -d /usr/local/anaconda3/bin ]; then
+    export PATH=/usr/local/anaconda3/bin:"$PATH"
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
