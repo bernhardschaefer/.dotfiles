@@ -84,16 +84,7 @@ export MAVEN_HOME=/Users/bschaefer/Documents/projekte/rewe/development-toolkit/m
 export PATH=$MAVEN_HOME/bin:$PATH
 
 # --- VIM ---
-if [ -x /usr/bin/nvim ]; then
-    export EDITOR=/usr/bin/nvim
-elif [ -x /usr/local/bin/nvim ]; then
-    export EDITOR=/usr/local/bin/nvim
-else
-    export EDITOR=/usr/bin/vim
-fi
-if [ -n $EDITOR ]; then
-    alias vim=$EDITOR
-fi
+export EDITOR=$(which vim)
 
 # --- Java ---
 if [[ "$OSTYPE" == "darwin"* ]]; then
