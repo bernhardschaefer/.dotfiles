@@ -75,10 +75,6 @@ set autoread
 let mapleader = ","
 let g:mapleader = ","
 
-nmap <leader>w :w<cr>
-
-cmap w!! w !sudo tee > /dev/null %
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -138,11 +134,6 @@ set backupdir=~/.vim/backup
 " show row numbers
 set number
 
-" C-Space for completion
-inoremap <C-Space> <C-x><C-o>
-
-inoremap <Tab> <C-X><C-F>
-
 " automatically yank to clipboard (this means that there is an alias for "+yy
 " --> yy)
 set clipboard^=unnamed,unnamedplus
@@ -168,25 +159,43 @@ set softtabstop=4  " the number of columns for a \t
 set shiftwidth=4   " indent have a width of 4
 set expandtab " expand tab to spaces
 
+" ----- Mappings -----
+
+" Insert mode mappings:
+" C-Space for completion
+inoremap <C-Space> <C-x><C-o>
+" Tab for path completion
+inoremap <Tab> <C-X><C-F>
+
+" Normal mode mappings:
+nnoremap <leader>w :w<cr>
 " http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
-
 " remove trailing whitespace with F5
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+" easier switching between splits
+" TODO: https://teamgaslight.com/blog/vim-plus-tmux-a-perfect-match
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Control mode mappings:
+cnoremap w!! w !sudo tee > /dev/null %
 
 " ----- NERDTree -----
 " don't show .pyc files in tree
 let NERDTreeIgnore = ['\.pyc$']
 
 " shortcut for NERDTree
-nmap <leader>ne :NERDTree<cr>
+nnoremap <leader>ne :NERDTree<cr>
 
 " ----- LatexBox -----
 
 " shortcut for LatexTOCToggle
-" nmap <leader>l :LatexTOCToggle<cr>
-" nmap <leader>m :Latexmk<cr>
-" nmap <leader>c :w<cr> :Latexmk<cr>
+" nnoremap <leader>l :LatexTOCToggle<cr>
+" nnoremap <leader>m :Latexmk<cr>
+" nnoremap <leader>c :w<cr> :Latexmk<cr>
 
 " ----- GVIM SETTINGS -----
 if has("gui_running")
@@ -197,11 +206,6 @@ if has("gui_running")
     set guioptions-=r  "remove right-hand scroll bar
     set guioptions-=L  "remove left-hand scroll bar
     set guioptions-=e  "remove tab pages
-
-    " from http://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
-    " GUI is running or is about to start.
-    " Increase gvim window size.
-    set lines=30 columns=100
 endif
 
 " ----- DEFAULT VIMRC -----
