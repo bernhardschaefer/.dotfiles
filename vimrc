@@ -24,6 +24,8 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     " git wrapper with commands such as :Gstatus (see :help fugitive)
     Plugin 'tpope/vim-fugitive'
 
+    Plugin 'christoomey/vim-tmux-navigator'
+
     " disable for cygwin
     if has("unix") && !has("win32unix")
         " opening files with a minimal number of keystrokes
@@ -164,8 +166,6 @@ set expandtab " expand tab to spaces
 " Insert mode mappings:
 " C-Space for completion
 inoremap <C-Space> <C-x><C-o>
-" Tab for path completion
-inoremap <Tab> <C-X><C-F>
 
 " Normal mode mappings:
 nnoremap <leader>w :w<cr>
