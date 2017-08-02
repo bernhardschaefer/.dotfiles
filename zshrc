@@ -76,6 +76,9 @@ vundle-init
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# bash-like ctrl-u behavior
+bindkey "^u" backward-kill-line
+
 if [[ "$OSTYPE" == "darwin"* ]]; then
     export JAVA_HOME=$(/usr/libexec/java_home)
 fi
