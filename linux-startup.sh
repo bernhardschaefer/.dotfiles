@@ -5,13 +5,12 @@
 
 # ----- Keyboard Settings -----
 
-# --- Swap caps and escape ---
+# --- replace caps with escape ---
 
-# direct way:
-# setxkbmap -option caps:swapescape
+# direct way (can be set in ~/.xinitrc)
+# setxkbmap -option caps:escape
 
 # dconf setting seems to be more reliable
-# dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:swapescape']"
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
 # verify correct settings
