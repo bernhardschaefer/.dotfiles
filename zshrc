@@ -108,10 +108,10 @@ if [ -d /opt/spark/spark-default ]; then
 fi
 
 # for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
-export PYSPARK_PYTHON="python3.5"
+export PYSPARK_PYTHON="python3.6"
 export PYSPARK_DRIVER_PYTHON="jupyter"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --port=8888"
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 # Anaconda 3
 if [ -d /opt/anaconda/anaconda3/bin ]; then
@@ -120,6 +120,9 @@ fi
 if [ -d /usr/local/anaconda3/bin ]; then
     export PATH=/usr/local/anaconda3/bin:"$PATH"
 fi
+
+# unix
+export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.Rhistory --exclude-dir=.git --exclude-dir=.Rproj.user'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
