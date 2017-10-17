@@ -91,6 +91,8 @@ if has("unix") && !has("win32unix") && isdirectory($HOME . "/.vim/bundle/vim-col
     let g:solarized_termcolors=16
     " solarized colorscheme
     colorscheme solarized
+else
+    colorscheme ron
 endif
 
 " Turn on the WiLd menu
