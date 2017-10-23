@@ -136,6 +136,7 @@ endif
 set backupdir=~/.vim/backup
 
 " show row numbers
+set relativenumber
 set number
 
 " automatically yank to clipboard (this means that there is an alias for "+yy
