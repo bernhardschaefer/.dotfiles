@@ -122,7 +122,7 @@ if [ -d /usr/local/anaconda3/bin ]; then
 fi
 
 # unix
-export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.Rhistory --exclude-dir=.git --exclude-dir=.Rproj.user'
+export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

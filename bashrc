@@ -103,6 +103,9 @@ adddate() {
 # http://askubuntu.com/questions/184397/how-do-i-pipe-terminal-standard-output-stdout-to-the-clipboard
 alias copy='xsel -ib'
 
+# unix
+export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
+
 # --- VIM ---
 export EDITOR=$(which vim)
 
