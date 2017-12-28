@@ -133,8 +133,10 @@ if [ -d /opt/spark/spark-default ]; then
     export PATH=$PATH:$SPARK_HOME/bin
 fi
 
+alias ylam="yarn logs -log_files 'stdout,stderr' -am 1 -applicationId"
+
 # for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
-export PYSPARK_PYTHON="python3.5"
+export PYSPARK_PYTHON="python3.6"
 export PYSPARK_DRIVER_PYTHON="jupyter"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --port=8888"
