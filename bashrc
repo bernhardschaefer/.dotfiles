@@ -132,7 +132,6 @@ if [ -d $ECLIPSE_HOME ]; then
 fi
 
 # --- Spark ---
-export SPARK_LOCAL_IP=127.0.0.1
 if [ -d /opt/spark/spark-default ]; then
     export SPARK_HOME=/opt/spark/spark-default
     export PATH=$PATH:$SPARK_HOME/bin
