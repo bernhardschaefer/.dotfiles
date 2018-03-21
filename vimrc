@@ -202,13 +202,7 @@ nnoremap <leader>ne :NERDTree<cr>
 
 " ----- GVIM SETTINGS -----
 if has("gui_running")
-    set guifont=Monospace\ 11
-
-    set guioptions-=m  "remove menu bar
-    set guioptions-=T  "remove toolbar
-    set guioptions-=r  "remove right-hand scroll bar
-    set guioptions-=L  "remove left-hand scroll bar
-    set guioptions-=e  "remove tab pages
+    set guifont=Menlo\ Regular:h15
 endif
 
 " ----- DEFAULT VIMRC -----
