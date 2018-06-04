@@ -8,7 +8,7 @@ endif
 
 " VUNDLE
 " Installation
-"  1. git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"  1. git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "  2. vim +PluginInstall +qall
 if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     filetype off
