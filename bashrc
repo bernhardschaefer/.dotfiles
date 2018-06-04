@@ -121,9 +121,9 @@ export TERM=xterm-256color
 #export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
 # --- Java ---
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
-fi
+#if [[ "$OSTYPE" == "darwin"* ]]; then
+#    export JAVA_HOME=$(/usr/libexec/java_home)
+#fi
 
 # --- Eclipse ---
 ECLIPSE_HOME=/opt/eclipse/eclipse-default

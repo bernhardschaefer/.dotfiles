@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/bschaefer/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="agnoster"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -79,20 +79,13 @@ vundle-init
 # bash-like ctrl-u behavior
 bindkey "^u" backward-kill-line
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
-fi
-
-export MAVEN_HOME=/Users/bschaefer/Documents/projekte/rewe/development-toolkit/maven-3.1.1
-export PATH=$MAVEN_HOME/bin:$PATH
-
 # --- VIM ---
 export EDITOR=$(which vim)
 
 # --- Java ---
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
-fi
+#if [[ "$OSTYPE" == "darwin"* ]]; then
+#    export JAVA_HOME=$(/usr/libexec/java_home)
+#fi
 
 # --- Eclipse ---
 ECLIPSE_HOME=/opt/eclipse/eclipse-default
@@ -101,11 +94,10 @@ if [ -d $ECLIPSE_HOME ]; then
 fi
 
 # --- Spark ---
-export SPARK_LOCAL_IP=127.0.0.1
-if [ -d /opt/spark/spark-default ]; then
-    export SPARK_HOME=/opt/spark/spark-default
-    export PATH=$PATH:$SPARK_HOME/bin
-fi
+#if [ -d /opt/spark/spark-default ]; then
+#    export SPARK_HOME=/opt/spark/spark-default
+#    export PATH=$PATH:$SPARK_HOME/bin
+#fi
 
 # for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
 export PYSPARK_PYTHON="python3.6"
@@ -132,3 +124,7 @@ export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+if type mvim > /dev/null; then
+    alias vim='mvim -v'
+fi
+
