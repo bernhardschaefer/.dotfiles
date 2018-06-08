@@ -79,7 +79,14 @@ vundle-init
 # bash-like ctrl-u behavior
 bindkey "^u" backward-kill-line
 
+if [ -d ~/.local/bin ]; then
+    export PATH=$PATH:~/.local/bin
+fi
+
 # --- VIM ---
+if type mvim > /dev/null; then
+    alias vim='mvim -v'
+fi
 export EDITOR=$(which vim)
 
 # --- Java ---
@@ -105,7 +112,7 @@ export PYSPARK_DRIVER_PYTHON="jupyter"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
-# Anaconda 3
+# --- Anaconda 3 ---
 if [ -d /opt/anaconda/anaconda3/bin ]; then
     export PATH=/opt/anaconda/anaconda3/bin:$PATH
 fi
@@ -113,8 +120,8 @@ if [ -d /usr/local/anaconda3/bin ]; then
     export PATH=/usr/local/anaconda3/bin:"$PATH"
 fi
 
-# unix
-export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
+# --- unix ---
+export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.* --exclude-dir=node_modules'
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -124,7 +131,4 @@ export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-if type mvim > /dev/null; then
-    alias vim='mvim -v'
-fi
 
