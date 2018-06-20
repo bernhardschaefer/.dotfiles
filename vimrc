@@ -19,7 +19,8 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
     Plugin 'scrooloose/nerdtree'
 
     " syntax checking plugin
-    Plugin 'scrooloose/syntastic'
+    Plugin 'w0rp/ale'
+    let g:ale_python_pylint_options = '--disable=missing-docstring,invalid-name,bad-continuation --max-line-length=120'
 
     " git wrapper with commands such as :Gstatus (see :help fugitive)
     Plugin 'tpope/vim-fugitive'
@@ -35,16 +36,25 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
         " make
         " Plugin 'wincent/Command-T'
 
-        " Completion
-        " Installation:
-        "   cd ~/.vim/bundle/YouCompleteMe
-        "   ./install.sh
-        " Plugin 'Valloric/YouCompleteMe'
-
         Plugin 'altercation/vim-colors-solarized'
     endif
 
     Plugin 'itchyny/lightline.vim'
+    Plugin 'maximbaz/lightline-ale'
+    let g:lightline = {}
+    let g:lightline.component_expand = {
+          \  'linter_checking': 'lightline#ale#checking',
+          \  'linter_warnings': 'lightline#ale#warnings',
+          \  'linter_errors': 'lightline#ale#errors',
+          \  'linter_ok': 'lightline#ale#ok',
+          \ }
+    let g:lightline.component_type = {
+          \     'linter_checking': 'left',
+          \     'linter_warnings': 'warning',
+          \     'linter_errors': 'error',
+          \     'linter_ok': 'left',
+          \ }
+    let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 
     " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
