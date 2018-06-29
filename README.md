@@ -1,12 +1,15 @@
 dotfiles
 ========
 
+Setup
+--------
+
 ```
 ln -s ~/ws/git/dotfiles/bashrc ~/.bash_profile 
 ln -s ~/ws/git/dotfiles/zshrc ~/.zshrc
 ```
 
-iTerms
+iTerm
 --------
 
 - Install [Powerline Fonts](https://github.com/powerline/fonts)
@@ -19,5 +22,6 @@ conda
 ```
 conda install -c conda-forge jupyter_contrib_nbextensions autopep8
 conda install -c conda-forge jupyterlab
+conda install -c conda-forge feather-format 
 ```
 
