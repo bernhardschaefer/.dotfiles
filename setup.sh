@@ -1,8 +1,10 @@
 #!/bin/bash
 
 DIR=~/ws/git/dotfiles
-ln -vs $DIR/bashrc ~/.bashrc 
-ln -vs $DIR/vimrc ~/.vimrc 
+ln -vs $DIR/.exports ~/.exports
+mv ~/.bashrc{,.old}
+ln -vs $DIR/bashrc ~/.bash_profile
+ln -vs $DIR/vimrc ~/.vimrc
 
 # markdown italics
 tic xterm-256color-italic.terminfo

@@ -1,0 +1,54 @@
+
+# unix
+export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
+
+# --- MAC OS bin path ---
+if [ -d ~/.local/bin ]; then
+    export PATH=$PATH:~/.local/bin
+fi
+
+# --- VIM ---
+export EDITOR=$(which vim)
+
+# --- Java ---
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
+# --- Eclipse ---
+ECLIPSE_HOME=/opt/eclipse/eclipse-default
+if [ -d $ECLIPSE_HOME ]; then
+    export PATH=$PATH:$ECLIPSE_HOME
+fi
+
+# --- Spark ---
+#if [ -d /opt/spark/spark-default ]; then
+#    export SPARK_HOME=/opt/spark/spark-default
+#    export PATH=$PATH:$SPARK_HOME/bin
+#fi
+
+# for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
+export PYSPARK_PYTHON="python3.6"
+export PYSPARK_DRIVER_PYTHON="jupyter"
+#export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
+export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+
+# --- Anaconda 3 ---
+if [ -d /opt/anaconda/anaconda3/bin ]; then
+    export PATH=/opt/anaconda/anaconda3/bin:$PATH
+fi
+if [ -d /usr/local/anaconda3/bin ]; then
+    export PATH=/usr/local/anaconda3/bin:"$PATH"
+fi
+
+# --- EnergyPlus & BCVTB ---
+export BCVTB_HOME=/Applications/bcvtb
+#if [ -d /Applications/bcvtb ]; then
+#    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$BCVTB_HOME/lib/util/libbcvtb.dylib"
+#fi
+export BCVTB_JNI_DIR="$JAVA_HOME/include"
+export EPLUS_HOME=/Applications/EnergyPlus-8-5-0
+if [ -d /Applications/EnergyPlus-8-5-0 ]; then
+    export PATH="$PATH:$EPLUS_HOME"
+fi
+

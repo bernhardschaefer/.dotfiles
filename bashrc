@@ -106,48 +106,11 @@ adddate() {
 # http://askubuntu.com/questions/184397/how-do-i-pipe-terminal-standard-output-stdout-to-the-clipboard
 alias copy='xsel -ib'
 
-# unix
-export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
-
-# --- VIM ---
-export EDITOR=$(which vim)
-
 # --- Powerline ---
 export TERM=xterm-256color
 
 # --- PS1 ---
 #export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
-# --- Java ---
-#if [[ "$OSTYPE" == "darwin"* ]]; then
-#    export JAVA_HOME=$(/usr/libexec/java_home)
-#fi
-
-# --- Eclipse ---
-ECLIPSE_HOME=/opt/eclipse/eclipse-default
-if [ -d $ECLIPSE_HOME ]; then
-    export PATH=$PATH:$ECLIPSE_HOME
-fi
-
-# --- Spark ---
-if [ -d /opt/spark/spark-default ]; then
-    export SPARK_HOME=/opt/spark/spark-default
-    export PATH=$PATH:$SPARK_HOME/bin
-fi
-
-alias ylam="yarn logs -log_files 'stdout,stderr' -am 1 -applicationId"
-
-# for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
-export PYSPARK_PYTHON="python3.6"
-export PYSPARK_DRIVER_PYTHON="jupyter"
-#export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --port=8888"
-
-# Anaconda 3
-if [ -d /opt/anaconda/anaconda3/bin ]; then
-    export PATH=/opt/anaconda/anaconda3/bin:$PATH
-fi
-if [ -d /usr/local/anaconda3/bin ]; then
-    export PATH=/usr/local/anaconda3/bin:"$PATH"
-fi
+source ~/.exports
 

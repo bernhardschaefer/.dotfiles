@@ -79,49 +79,9 @@ vundle-init
 # bash-like ctrl-u behavior
 bindkey "^u" backward-kill-line
 
-if [ -d ~/.local/bin ]; then
-    export PATH=$PATH:~/.local/bin
-fi
-
-# --- VIM ---
 if type mvim > /dev/null; then
     alias vim='mvim -v'
 fi
-export EDITOR=$(which vim)
-
-# --- Java ---
-#if [[ "$OSTYPE" == "darwin"* ]]; then
-#    export JAVA_HOME=$(/usr/libexec/java_home)
-#fi
-
-# --- Eclipse ---
-ECLIPSE_HOME=/opt/eclipse/eclipse-default
-if [ -d $ECLIPSE_HOME ]; then
-    export PATH=$PATH:$ECLIPSE_HOME
-fi
-
-# --- Spark ---
-#if [ -d /opt/spark/spark-default ]; then
-#    export SPARK_HOME=/opt/spark/spark-default
-#    export PATH=$PATH:$SPARK_HOME/bin
-#fi
-
-# for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
-export PYSPARK_PYTHON="python3.6"
-export PYSPARK_DRIVER_PYTHON="jupyter"
-#export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
-
-# --- Anaconda 3 ---
-if [ -d /opt/anaconda/anaconda3/bin ]; then
-    export PATH=/opt/anaconda/anaconda3/bin:$PATH
-fi
-if [ -d /usr/local/anaconda3/bin ]; then
-    export PATH=/usr/local/anaconda3/bin:"$PATH"
-fi
-
-# --- unix ---
-export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.* --exclude-dir=node_modules'
 
 # --- aliases ---
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -132,3 +92,6 @@ export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.* 
 # use verbose copy and move by default
 alias cp='cp -v'
 alias mv='mv -v'
+
+source ~/.exports
+

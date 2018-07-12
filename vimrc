@@ -58,6 +58,9 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
 
     " Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
+    Plugin 'gabrielelana/vim-markdown'
+    let g:markdown_enable_spell_checking = 0
+
     call vundle#end()
 
 endif
