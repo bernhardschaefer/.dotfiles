@@ -9,6 +9,8 @@ fi
 
 # --- VIM ---
 export EDITOR=$(which vim)
+# git does not work with mvim aliased vim
+export GIT_EDITOR=/usr/bin/vim
 
 # --- Java ---
 if [[ "$OSTYPE" == "darwin"* ]]; then

@@ -40,5 +40,8 @@ conda
 conda install -c conda-forge jupyter_contrib_nbextensions autopep8
 conda install -c conda-forge jupyterlab
 conda install -c conda-forge feather-format 
+pip install tensorflow-gpu # omit -gpu suffix for CPU version
+pip install keras-tqdm
+pip install plotly
 ```
 
