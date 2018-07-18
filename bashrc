@@ -112,5 +112,7 @@ export TERM=xterm-256color
 # --- PS1 ---
 #export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 source ~/.exports
 

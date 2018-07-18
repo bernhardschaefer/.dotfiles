@@ -3,11 +3,10 @@ Setup
 
 ```
 DIR=~/ws/git/dotfiles
-ln -vs $DIR/.exports ~/.exports
-mv ~/.bashrc{,.old}
-ln -vs $DIR/bashrc ~/.bash_profile
 ln -vs $DIR/zshrc ~/.zshrc
 ln -vs $DIR/vimrc ~/.vimrc
+ln -vs $DIR/.exports ~/.exports
+ln -vs $DIR/.fdignore ~/.fdignore
 ```
 
 Deprecated?:
@@ -32,6 +31,7 @@ iTerm
 - Install [Powerline Fonts](https://github.com/powerline/fonts)
 - Setup iTerm2 solarized profile with Menlo Powerline font and Solarized colorscheme
 - Enable word jumps in iTerm2: Preferences → Profiles → Keys → Load Preset... → Natural Text Editing
+- Key bindings and fuzzy completion for fzf: `$(brew --prefix)/opt/fzf/install`
 
 conda
 -------

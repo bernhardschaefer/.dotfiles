@@ -52,14 +52,11 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(osx vundle git zsh-syntax-highlighting)
+plugins=(osx git zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# install vundle if non-existing
-vundle-init
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -83,6 +80,34 @@ if type mvim > /dev/null; then
     alias vim='mvim -v'
 fi
 
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+
+    # Setting fd as the default source for fzf
+    export FZF_DEFAULT_COMMAND='fd --type f'
+
+    # To apply the command to CTRL-T as well
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+     # Use fd (https://github.com/sharkdp/fd) instead of the default find
+    # command for listing path candidates.
+    # - The first argument to the function ($1) is the base path to start traversal
+    # - See the source code (completion.{bash,zsh}) for the details.
+    _fzf_compgen_path() {
+      fd --follow --exclude ".git" . "$1"
+    }
+
+    # Use fd to generate the list for directory completion
+    _fzf_compgen_dir() {
+      fd --type d --follow --exclude ".git" . "$1"
+    }
+    export FZF_ALT_C_COMMAND="fd --type d"
+
+    # workaround since ALT-c does not work on macOS:
+    # sdf - cd to selected directory
+    bindkey '^X^X' fzf-cd-widget
+fi
+
 # --- aliases ---
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -94,4 +119,3 @@ alias cp='cp -v'
 alias mv='mv -v'
 
 source ~/.exports
-

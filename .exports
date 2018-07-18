@@ -1,11 +1,9 @@
 
 # unix
-export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
+#export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
 
 # --- MAC OS bin path ---
-if [ -d ~/.local/bin ]; then
-    export PATH=$PATH:~/.local/bin
-fi
+[ -d ~/.local/bin ] && export PATH=$PATH:~/.local/bin
 
 # --- VIM ---
 export EDITOR=$(which vim)
@@ -19,9 +17,7 @@ fi
 
 # --- Eclipse ---
 ECLIPSE_HOME=/opt/eclipse/eclipse-default
-if [ -d $ECLIPSE_HOME ]; then
-    export PATH=$PATH:$ECLIPSE_HOME
-fi
+[ -d $ECLIPSE_HOME ] && export PATH=$PATH:$ECLIPSE_HOME
 
 # --- Spark ---
 #if [ -d /opt/spark/spark-default ]; then
@@ -36,12 +32,8 @@ export PYSPARK_DRIVER_PYTHON="jupyter"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 # --- Anaconda 3 ---
-if [ -d /opt/anaconda/anaconda3/bin ]; then
-    export PATH=/opt/anaconda/anaconda3/bin:$PATH
-fi
-if [ -d /usr/local/anaconda3/bin ]; then
-    export PATH=/usr/local/anaconda3/bin:"$PATH"
-fi
+[ -d /opt/anaconda/anaconda3/bin ] && export PATH=/opt/anaconda/anaconda3/bin:$PATH
+[ -d /usr/local/anaconda3/bin ] && export PATH=/usr/local/anaconda3/bin:"$PATH"
 
 # --- EnergyPlus & BCVTB ---
 export BCVTB_HOME=/Applications/bcvtb
@@ -50,7 +42,5 @@ export BCVTB_HOME=/Applications/bcvtb
 #fi
 export BCVTB_JNI_DIR="$JAVA_HOME/include"
 export EPLUS_HOME=/Applications/EnergyPlus-8-5-0
-if [ -d /Applications/EnergyPlus-8-5-0 ]; then
-    export PATH="$PATH:$EPLUS_HOME"
-fi
+[ -d /Applications/EnergyPlus-8-5-0 ] && export PATH="$PATH:$EPLUS_HOME"
 

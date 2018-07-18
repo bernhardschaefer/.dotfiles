@@ -6,26 +6,24 @@ if has('nvim')
     runtime! plugin/python_setup.vim
 endif
 
-" VUNDLE
-" Installation
-"  1. git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"  2. vim +PluginInstall +qall
-if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
-    filetype off
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
-    Plugin 'VundleVim/Vundle.vim'
+" vim-plug
+" Installation:
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if filereadable($HOME . "/.vim/autoload/plug.vim")
+    call plug#begin('~/.vim/plugged')
 
-    Plugin 'scrooloose/nerdtree'
+    Plug '/usr/local/opt/fzf'
+
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
     " syntax checking plugin
-    Plugin 'w0rp/ale'
+    Plug 'w0rp/ale'
     let g:ale_python_pylint_options = '--disable=missing-docstring,invalid-name,bad-continuation --max-line-length=120'
 
     " git wrapper with commands such as :Gstatus (see :help fugitive)
-    Plugin 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
 
-    Plugin 'christoomey/vim-tmux-navigator'
+    Plug 'christoomey/vim-tmux-navigator'
 
     " disable for cygwin
     if has("unix") && !has("win32unix")
@@ -34,13 +32,12 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
         " cd ~/.vim/bundle/Command-T/ruby/command-t
         " ruby extconf.rb
         " make
-        " Plugin 'wincent/Command-T'
+        " Plug 'wincent/Command-T'
 
-        Plugin 'altercation/vim-colors-solarized'
+        Plug 'altercation/vim-colors-solarized'
     endif
 
-    Plugin 'itchyny/lightline.vim'
-    Plugin 'maximbaz/lightline-ale'
+    Plug 'itchyny/lightline.vim' | Plug 'maximbaz/lightline-ale'
     let g:lightline = {}
     let g:lightline.component_expand = {
           \  'linter_checking': 'lightline#ale#checking',
@@ -56,13 +53,12 @@ if isdirectory($HOME . "/.vim/bundle/Vundle.vim")
           \ }
     let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 
-    " Plugin 'LaTeX-Box-Team/LaTeX-Box'
+    Plug 'lervag/vimtex', { 'for': 'latex' }
 
-    Plugin 'gabrielelana/vim-markdown'
+    Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     let g:markdown_enable_spell_checking = 0
 
-    call vundle#end()
-
+    call plug#end()
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

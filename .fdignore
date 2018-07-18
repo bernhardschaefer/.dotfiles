@@ -1,0 +1,5 @@
+# figure out directories with many entries with: fd | cut -d'/' -f 1 | sort | uniq -c
+Library/
+Music/
+EnergyPlus/
+LightGBM/
