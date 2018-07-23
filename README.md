@@ -42,6 +42,6 @@ conda install -c conda-forge jupyterlab
 conda install -c conda-forge feather-format 
 pip install tensorflow-gpu # omit -gpu suffix for CPU version
 pip install keras-tqdm
-pip install plotly
+pip install plotly cufflinks
 ```
 
