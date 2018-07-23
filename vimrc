@@ -53,8 +53,9 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
           \ }
     let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 
-    Plug 'lervag/vimtex', { 'for': 'latex' }
+    Plug 'lervag/vimtex', { 'for': 'tex' }
 
+    Plug 'godlygeek/tabular', { 'for': 'markdown' }
     Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     let g:markdown_enable_spell_checking = 0
 
@@ -85,6 +86,7 @@ set autoread
 
 let mapleader = ","
 let g:mapleader = ","
+let maplocalleader = "<"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -202,20 +204,12 @@ let NERDTreeIgnore = ['\.pyc$']
 " shortcut for NERDTree
 nnoremap <leader>ne :NERDTree<cr>
 
-" ----- LatexBox -----
-
-" shortcut for LatexTOCToggle
-" nnoremap <leader>l :LatexTOCToggle<cr>
-" nnoremap <leader>m :Latexmk<cr>
-" nnoremap <leader>c :w<cr> :Latexmk<cr>
-
-" ----- GVIM SETTINGS -----
+" ----- VIM GUI SETTINGS -----
 if has("gui_running")
     set guifont=Menlo\ Regular:h15
 endif
 
 " ----- DEFAULT VIMRC -----
-
 " set showcmd    " display incomplete commands
 
 " When editing a file, always jump to the last known cursor position.
