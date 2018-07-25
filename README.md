@@ -1,12 +1,21 @@
 Setup
 --------
 
+Symlinks:
 ```
 DIR=~/ws/git/dotfiles
 ln -vs $DIR/zshrc ~/.zshrc
 ln -vs $DIR/vimrc ~/.vimrc
 ln -vs $DIR/.exports ~/.exports
 ln -vs $DIR/.fdignore ~/.fdignore
+```
+
+tmux:
+```
+cd
+git clone https://github.com/gpakosz/.tmux.git
+ln -s -f .tmux/.tmux.conf
+cp .tmux/.tmux.conf.local .
 ```
 
 Deprecated?:
@@ -44,4 +53,9 @@ pip install tensorflow-gpu # omit -gpu suffix for CPU version
 pip install keras-tqdm
 pip install plotly cufflinks
 ```
+
+macOS
+-------
+
+- Accessibility -> Desktop -> Reduce motion
 
