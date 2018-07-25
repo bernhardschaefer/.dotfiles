@@ -45,13 +45,18 @@ iTerm
 conda
 -------
 
+Missing in root env:
 ```
 conda install -y conda_nb
-conda install -y pandas numpy scikit-learn matplotlib seaborn
 conda install -c conda-forge -y jupyterlab jupyter_contrib_nbextensions autopep8 feather-format
 pip install tensorflow-gpu # omit -gpu suffix for CPU version
 pip install keras-tqdm
-pip install plotly cufflinks
+pip install cufflinks
+```
+
+New env (on top of root env missing dependencies):
+```
+conda install -y pandas numpy scikit-learn matplotlib seaborn ipykernel
 ```
 
 macOS
