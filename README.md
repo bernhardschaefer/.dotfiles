@@ -37,9 +37,9 @@ conda
 -------
 
 ```
-conda install -c conda-forge jupyter_contrib_nbextensions autopep8
-conda install -c conda-forge jupyterlab
-conda install -c conda-forge feather-format 
+conda install -y conda_nb
+conda install -y pandas numpy scikit-learn matplotlib seaborn
+conda install -c conda-forge -y jupyterlab jupyter_contrib_nbextensions autopep8 feather-format
 pip install tensorflow-gpu # omit -gpu suffix for CPU version
 pip install keras-tqdm
 pip install plotly cufflinks
