@@ -36,11 +36,16 @@ export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 [ -d /usr/local/anaconda3/bin ] && export PATH=/usr/local/anaconda3/bin:"$PATH"
 
 # --- EnergyPlus & BCVTB ---
-export BCVTB_HOME=/Applications/bcvtb
-#if [ -d /Applications/bcvtb ]; then
-#    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$BCVTB_HOME/lib/util/libbcvtb.dylib"
-#fi
+if [ -d /Applications/bcvtb ]; then
+    export BCVTB_HOME=/Applications/bcvtb
+    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$BCVTB_HOME/lib/util/libbcvtb.dylib"
+elif [ -d ~/bcvtb ]; then
+    export BCVTB_HOME=~/bcvtb
+fi
 export BCVTB_JNI_DIR="$JAVA_HOME/include"
-export EPLUS_HOME=/Applications/EnergyPlus-8-5-0
-[ -d /Applications/EnergyPlus-8-5-0 ] && export PATH="$PATH:$EPLUS_HOME"
+
+if [ -d /usr/local/EnergyPlus-8-5-0 ]; then
+    export EPLUS_HOME=/usr/local/EnergyPlus-8-5-0
+    export PATH="$PATH:$EPLUS_HOME"
+fi
 

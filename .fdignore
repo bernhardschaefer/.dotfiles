@@ -1,5 +1,11 @@
 # figure out directories with many entries with: fd | cut -d'/' -f 1 | sort | uniq -c
+
+# macOS
 Library/
 Music/
 EnergyPlus/
 LightGBM/
+
+# Linux
+anaconda3/
+bcvtb/
