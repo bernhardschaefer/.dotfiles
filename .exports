@@ -15,6 +15,43 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
+# --- fzf & fd ---
+
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+
+# Auto-completion
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
+# workaround since ALT-c does not work on macOS:
+# sdf - cd to selected directory
+bindkey '^X^X' fzf-cd-widget
+
+if type fd > /dev/null; then
+    # Setting fd as the default source for fzf
+    export FZF_DEFAULT_COMMAND='fd --type f'
+
+    # To apply the command to CTRL-T as well
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+     # Use fd (https://github.com/sharkdp/fd) instead of the default find
+    # command for listing path candidates.
+    # - The first argument to the function ($1) is the base path to start traversal
+    # - See the source code (completion.{bash,zsh}) for the details.
+    _fzf_compgen_path() {
+      fd --follow --exclude ".git" . "$1"
+    }
+
+    # Use fd to generate the list for directory completion
+    _fzf_compgen_dir() {
+      fd --type d --follow --exclude ".git" . "$1"
+    }
+    export FZF_ALT_C_COMMAND="fd --type d"
+fi
+
 # --- Eclipse ---
 ECLIPSE_HOME=/opt/eclipse/eclipse-default
 [ -d $ECLIPSE_HOME ] && export PATH=$PATH:$ECLIPSE_HOME
@@ -44,6 +81,10 @@ elif [ -d ~/bcvtb ]; then
 fi
 export BCVTB_JNI_DIR="$JAVA_HOME/include"
 
+if [ -d /Applications/EnergyPlus-8-5-0 ]; then
+    export EPLUS_HOME=/Applications/EnergyPlus-8-5-0
+    export PATH="$PATH:$EPLUS_HOME"
+fi
 if [ -d /usr/local/EnergyPlus-8-5-0 ]; then
     export EPLUS_HOME=/usr/local/EnergyPlus-8-5-0
     export PATH="$PATH:$EPLUS_HOME"
