@@ -112,7 +112,12 @@ export TERM=xterm-256color
 # --- PS1 ---
 #export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# --- fzf & fd ---
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.bash" 2> /dev/null
+source "/usr/local/opt/fzf/shell/key-bindings.bash"
 
 source ~/.exports
 
