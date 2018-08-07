@@ -1,5 +1,10 @@
 #!/bin/sh
 
+cd
+if [ ! -d ~/.dotfiles ]; then
+    git clone https://github.com/bernhardschaefer/.dotfiles.git
+fi
+
 # create symlinks
 DIR=~/.dotfiles
 ln -vs $DIR/zshrc ~/.zshrc
