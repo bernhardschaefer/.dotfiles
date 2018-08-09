@@ -56,8 +56,9 @@ export PYSPARK_DRIVER_PYTHON="jupyter"
 export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 # --- Anaconda 3 ---
-[ -d /opt/anaconda/anaconda3/bin ] && export PATH=/opt/anaconda/anaconda3/bin:$PATH
+[ -d /opt/anaconda/anaconda3/bin ] && export PATH=/opt/anaconda/anaconda3/bin:"$PATH"
 [ -d /usr/local/anaconda3/bin ] && export PATH=/usr/local/anaconda3/bin:"$PATH"
+[ -d ~/anaconda3/bin ] && export PATH=~/anaconda3/bin:"$PATH"
 
 # --- EnergyPlus & BCVTB ---
 if [ -d /Applications/bcvtb ]; then

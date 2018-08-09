@@ -12,13 +12,19 @@ endif
 if filereadable($HOME . "/.vim/autoload/plug.vim")
     call plug#begin('~/.vim/plugged')
 
-    Plug '/usr/local/opt/fzf'
+    if isdirectory('/usr/local/opt/fzf')
+        Plug '/usr/local/opt/fzf'
+    elseif isdirectory($HOME . "/.fzf")
+        Plug '~/.fzf'
+    endif
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
     " syntax checking plugin
     Plug 'w0rp/ale'
+    let g:ale_linters = { 'python': ['flake8'] }
     let g:ale_python_pylint_options = '--disable=missing-docstring,invalid-name,bad-continuation --max-line-length=120'
+    let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
     " git wrapper with commands such as :Gstatus (see :help fugitive)
     Plug 'tpope/vim-fugitive'
