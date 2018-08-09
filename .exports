@@ -17,10 +17,6 @@ fi
 
 # --- fzf & fd ---
 
-# workaround since ALT-c does not work on macOS:
-# sdf - cd to selected directory
-bindkey '^X^X' fzf-cd-widget
-
 if type fd > /dev/null; then
     # Setting fd as the default source for fzf
     export FZF_DEFAULT_COMMAND='fd --type f'

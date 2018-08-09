@@ -91,11 +91,22 @@ alias cp='cp -v'
 alias mv='mv -v'
 
 # --- fzf & fd ---
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
+if [ -d ~/.fzf ]; then
+    FZF_HOME=~/.fzf
+elif [ -d /usr/local/opt/fzf ]; then
+    FZF_HOME=/usr/local/opt/fzf
 fi
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+if [ $FZF_HOME ]; then
+    if [[ ! "$PATH" == *$FZF_HOME/bin* ]]; then
+        export PATH="$PATH:$FZF_HOME/bin"
+    fi
+    [[ $- == *i* ]] && source "$FZF_HOME/shell/completion.zsh" 2> /dev/null
+    source "$FZF_HOME/shell/key-bindings.zsh"
+fi
+
+# workaround since ALT-c does not work on macOS:
+# sdf - cd to selected directory
+bindkey '^X^X' fzf-cd-widget
 
 source ~/.exports
 

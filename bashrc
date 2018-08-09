@@ -113,11 +113,18 @@ export TERM=xterm-256color
 #export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
 # --- fzf & fd ---
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="$PATH:/usr/local/opt/fzf/bin"
+if [ -d ~/.fzf ]; then
+    FZF_HOME=~/.fzf
+elif [ -d /usr/local/opt/fzf ]; then
+    FZF_HOME=/usr/local/opt/fzf
 fi
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.bash" 2> /dev/null
-source "/usr/local/opt/fzf/shell/key-bindings.bash"
+if [ $FZF_HOME ]; then
+    if [[ ! "$PATH" == *$FZF_HOME/bin* ]]; then
+        export PATH="$PATH:$FZF_HOME/bin"
+    fi
+    [[ $- == *i* ]] && source "$FZF_HOME/shell/completion.bash" 2> /dev/null
+    source "$FZF_HOME/shell/key-bindings.bash"
+fi
 
 source ~/.exports
 
