@@ -36,7 +36,7 @@ conda install -y conda_nb
 conda install -c conda-forge -y jupyterlab jupyter_contrib_nbextensions autopep8 feather-format
 pip install tensorflow-gpu # omit -gpu suffix for CPU version
 pip install keras-tqdm
-pip install cufflinks
+pip install plotly
 ```
 
 New env (on top of root env missing dependencies):
