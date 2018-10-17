@@ -60,6 +60,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 
     Plug 'lervag/vimtex', { 'for': 'tex' }
+    " let g:tex_fast = ""
 
     Plug 'godlygeek/tabular', { 'for': 'markdown' }
     Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
@@ -92,7 +93,7 @@ set autoread
 
 let mapleader = ","
 let g:mapleader = ","
-let maplocalleader = "<"
+let maplocalleader = ","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
