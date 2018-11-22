@@ -1,11 +1,32 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+pathappend() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="$PATH:$ARG"
+    fi
+  done
+}
+
+pathprepend() {
+  for ARG in "$@"
+  do
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="$ARG:$PATH"
+    fi
+  done
+}
+
+# If you come from bash you might have to change your $PATH.
+pathprepend $HOME/bin /usr/local/bin
+
 # unix
 #export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
 
 # --- MAC OS bin path ---
-[ -d ~/.local/bin ] && export PATH=$PATH:~/.local/bin
+pathappend ~/.local/bin
 
 # --- VIM ---
 export EDITOR=$(which vim)
@@ -42,8 +63,7 @@ if type fd > /dev/null; then
 fi
 
 # --- Eclipse ---
-ECLIPSE_HOME=/opt/eclipse/eclipse-default
-[ -d $ECLIPSE_HOME ] && export PATH=$PATH:$ECLIPSE_HOME
+pathappend /opt/eclipse/eclipse-default
 
 # --- Spark ---
 #if [ -d /opt/spark/spark-default ]; then
@@ -52,15 +72,13 @@ ECLIPSE_HOME=/opt/eclipse/eclipse-default
 #fi
 
 # for using RDD and lambda operations this python version needs to be in $PATH on all cluster nodes
-export PYSPARK_PYTHON="python3.6"
-export PYSPARK_DRIVER_PYTHON="jupyter"
+#export PYSPARK_PYTHON="python3.6"
+#export PYSPARK_DRIVER_PYTHON="jupyter"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
-export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+#export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 # --- Anaconda 3 ---
-[ -d /opt/anaconda/anaconda3/bin ] && export PATH=/opt/anaconda/anaconda3/bin:"$PATH"
-[ -d /usr/local/anaconda3/bin ] && export PATH=/usr/local/anaconda3/bin:"$PATH"
-[ -d ~/anaconda3/bin ] && export PATH=~/anaconda3/bin:"$PATH"
+pathprepend ~/anaconda3/bin /opt/anaconda/anaconda3/bin /usr/local/anaconda3/bin
 
 # --- EnergyPlus & BCVTB ---
 if [ -d /Applications/bcvtb ]; then
@@ -73,10 +91,10 @@ export BCVTB_JNI_DIR="$JAVA_HOME/include"
 
 if [ -d /Applications/EnergyPlus-8-5-0 ]; then
     export EPLUS_HOME=/Applications/EnergyPlus-8-5-0
-    export PATH="$PATH:$EPLUS_HOME"
+    pathappend $EPLUS_HOME
 fi
 if [ -d /usr/local/EnergyPlus-8-5-0 ]; then
     export EPLUS_HOME=/usr/local/EnergyPlus-8-5-0
-    export PATH="$PATH:$EPLUS_HOME"
+    pathappend $EPLUS_HOME
 fi
 
