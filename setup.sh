@@ -11,6 +11,7 @@ ln -vs $DIR/zshrc ~/.zshrc
 ln -vs $DIR/bashrc ~/.bashrc
 ln -vs $DIR/vimrc ~/.vimrc
 ln -vs $DIR/.exports ~/.exports
+ln -vs $DIR/.condarc ~/.condarc
 ln -vs $DIR/.fdignore ~/.fdignore
 
 # tmux
