@@ -30,18 +30,11 @@ iTerm
 conda
 -------
 
-Missing in root env:
+New env:
 ```
-conda install -y conda_nb
-conda install -c conda-forge -y jupyterlab jupyter_contrib_nbextensions autopep8 feather-format
-pip install tensorflow-gpu # omit -gpu suffix for CPU version
-pip install keras-tqdm
-pip install plotly
-```
-
-New env (on top of root env missing dependencies):
-```
-conda install -y pandas numpy scikit-learn matplotlib seaborn ipykernel
+conda create -n py37-ds -y python=3.7 numpy pandas jupyterlab seaborn matplotlib
+conda activate py37-ds
+jupyter labextension install @jupyterlab/toc
 ```
 
 macOS

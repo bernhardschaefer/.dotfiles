@@ -67,6 +67,15 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     let g:markdown_enable_spell_checking = 0
 
     call plug#end()
+
+    " disable for cygwin
+    if has("unix") && !has("win32unix")
+        let g:solarized_termcolors=16
+        " solarized colorscheme
+        colorscheme solarized
+    else
+        colorscheme ron
+    endif
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -101,17 +110,8 @@ let maplocalleader = ","
 
 " ----- COLOR SCHEME -----
 
-set background=dark
+set background=light
 syntax on
-
-" disable for cygwin
-if has("unix") && !has("win32unix") && isdirectory($HOME . "/.vim/bundle/vim-colors-solarized")
-    let g:solarized_termcolors=16
-    " solarized colorscheme
-    colorscheme solarized
-else
-    colorscheme ron
-endif
 
 " Turn on the WiLd menu
 set wildmenu
