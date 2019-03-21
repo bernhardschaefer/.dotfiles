@@ -126,5 +126,51 @@ if [ $FZF_HOME ]; then
     source "$FZF_HOME/shell/key-bindings.bash"
 fi
 
-source ~/.exports
+# --- git aliases (copied from zsh git plugin) ---
+alias g='git'
 
+alias ga='git add'
+alias gaa='git add --all'
+alias gapa='git add --patch'
+alias gau='git add --update'
+alias gav='git add --verbose'
+alias gap='git apply'
+
+alias gb='git branch'
+alias gba='git branch -a'
+alias gbd='git branch -d'
+alias gbda='git branch --no-color --merged | command grep -vE "^(\*|\s*(master|develop|dev)\s*$)" | command xargs -n 1 git branch -d'
+alias gbD='git branch -D'
+alias gbl='git blame -b -w'
+alias gbnm='git branch --no-merged'
+alias gbr='git branch --remote'
+alias gbs='git bisect'
+alias gbsb='git bisect bad'
+alias gbsg='git bisect good'
+alias gbsr='git bisect reset'
+alias gbss='git bisect start'
+
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gcn!='git commit -v --no-edit --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gcan!='git commit -v -a --no-edit --amend'
+alias gcans!='git commit -v -a -s --no-edit --amend'
+alias gcam='git commit -a -m'
+alias gcsm='git commit -s -m'
+alias gcb='git checkout -b'
+alias gcf='git config --list'
+alias gcl='git clone --recurse-submodules'
+alias gclean='git clean -fd'
+alias gpristine='git reset --hard && git clean -dfx'
+alias gcm='git checkout master'
+alias gcd='git checkout develop'
+alias gcmsg='git commit -m'
+alias gco='git checkout'
+alias gcs='git commit -S'
+
+alias gd='git diff'
+alias gds='git diff --staged'
+
+source ~/.exports
