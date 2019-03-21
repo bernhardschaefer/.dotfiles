@@ -78,7 +78,7 @@ pathappend /opt/eclipse/eclipse-default
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
 
 # --- Anaconda 3 ---
-pathprepend ~/anaconda3/bin /opt/anaconda/anaconda3/bin /usr/local/anaconda3/bin
+pathprepend ~/anaconda3/bin ~/miniconda/bin /opt/anaconda/anaconda3/bin /usr/local/anaconda3/bin
 
 # --- EnergyPlus & BCVTB ---
 if [ -d /Applications/bcvtb ]; then
