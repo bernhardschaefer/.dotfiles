@@ -8,6 +8,7 @@ fi
 # create symlinks
 DIR=~/.dotfiles
 ln -vs $DIR/zshrc ~/.zshrc
+mv -v ~/.bashrc ~/.bashrc.old
 ln -vs $DIR/bashrc ~/.bashrc
 ln -vs $DIR/vimrc ~/.vimrc
 ln -vs $DIR/.exports ~/.exports
@@ -21,3 +22,5 @@ if [ ! -d ~/.tmux ]; then
     ln -s -f .tmux/.tmux.conf
     cp .tmux/.tmux.conf.local .
 fi
+
+git config --global user.name "Bernhard Schäfer"
