@@ -7,13 +7,17 @@ fi
 
 # create symlinks
 DIR=~/.dotfiles
-ln -vs $DIR/zshrc ~/.zshrc
+ln -fvs $DIR/zshrc ~/.zshrc
 mv -v ~/.bashrc ~/.bashrc.old
 ln -vs $DIR/bashrc ~/.bashrc
-ln -vs $DIR/vimrc ~/.vimrc
-ln -vs $DIR/.exports ~/.exports
-ln -vs $DIR/.condarc ~/.condarc
-ln -vs $DIR/.fdignore ~/.fdignore
+ln -fvs $DIR/vimrc ~/.vimrc
+ln -fvs $DIR/.exports ~/.exports
+ln -fvs $DIR/.condarc ~/.condarc
+ln -fvs $DIR/.fdignore ~/.fdignore
+
+# jupyter lab
+mkdir -p ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/
+ln -fvs $DIR/jupyter/plugin.jupyterlab-settings ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/plugin.jupyterlab-settings
 
 # tmux
 if [ ! -d ~/.tmux ]; then

@@ -1,0 +1,39 @@
+{
+    
+    // [missing schema title]
+    // [missing schema description]
+    "application:activate-next-tab": {
+      "command": "application:activate-next-tab",
+      "keys": [
+        "Ctrl Shift *"
+      ],
+      "selector": "body"
+    },
+    
+    // [missing schema title]
+    // [missing schema description]
+    "application:activate-previous-tab": {
+      "command": "application:activate-previous-tab",
+      "keys": [
+        "Ctrl Shift Ü"
+      ],
+      "selector": "body"
+    },
+       
+    "notebook:collapse-selected-outputs": {
+        "command": "notebook:hide-cell-outputs",
+        "keys": [
+          "O"
+        ],
+        "selector": ".jp-Notebook:focus"
+    },
+        
+    "notebook:expand-selected-outputs": {
+        "command": "notebook:show-cell-outputs",
+        "keys": [
+          "Shift O"
+        ],
+        "selector": ".jp-Notebook:focus"
+    }
+    
+}
