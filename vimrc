@@ -60,7 +60,19 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     let g:lightline.active = { 'right': [[ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ]] }
 
     Plug 'lervag/vimtex', { 'for': 'tex' }
+    let g:tex_flavor='latex'
     " let g:tex_fast = ""
+
+    Plug '907th/vim-auto-save'
+    let g:auto_save_events = ["InsertLeave", "TextChanged"]
+    autocmd FileType tex let g:auto_save = 1
+    autocmd FileType tex let g:auto_save_silent = 1
+
+    Plug 'sirver/ultisnips'
+      Plug 'honza/vim-snippets'
+      let g:UltiSnipsExpandTrigger = '<tab>'
+      let g:UltiSnipsJumpForwardTrigger = '<tab>'
+      let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
     Plug 'godlygeek/tabular', { 'for': 'markdown' }
     Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
@@ -92,10 +104,6 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=700
-
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -139,6 +147,10 @@ set incsearch
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ----- OWN CUSTOM STUFF -----
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" fix annoying ESC delay
+" https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+set timeoutlen=1000 ttimeoutlen=0
 
 " store .swap files in dedicated directory
 " http://stackoverflow.com/questions/4331776/change-vim-swap-backup-undo-file-name/4331812#4331812
