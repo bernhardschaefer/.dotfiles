@@ -61,12 +61,13 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
 
     Plug 'lervag/vimtex', { 'for': 'tex' }
     let g:tex_flavor='latex'
+    let g:vimtex_view_method='skim'
     " let g:tex_fast = ""
 
-    Plug '907th/vim-auto-save'
-    let g:auto_save_events = ["InsertLeave", "TextChanged"]
-    autocmd FileType tex let g:auto_save = 1
-    autocmd FileType tex let g:auto_save_silent = 1
+    " Plug '907th/vim-auto-save'
+    " let g:auto_save_events = ["InsertLeave", "TextChanged"]
+    " autocmd FileType tex let g:auto_save = 1
+    " autocmd FileType tex let g:auto_save_silent = 1
 
     Plug 'sirver/ultisnips'
       Plug 'honza/vim-snippets'
