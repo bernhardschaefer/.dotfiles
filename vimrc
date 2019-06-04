@@ -28,6 +28,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
 
     " git wrapper with commands such as :Gstatus (see :help fugitive)
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
 
     Plug 'christoomey/vim-tmux-navigator'
 
