@@ -28,3 +28,6 @@ if [ ! -d ~/.tmux ]; then
 fi
 
 git config --global user.name "Bernhard Schäfer"
+
+# macvim enable thin fonts
+defaults write org.vim.MacVim AppleFontSmoothing -int 0  

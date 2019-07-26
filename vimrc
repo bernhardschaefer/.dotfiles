@@ -19,6 +19,10 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     endif
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    let NERDTreeIgnore = ['\.pyc$', '\.aux$', '\.bbl$', '\.blg$', '\.fdb_latexmk$', '\.fls$', '\.syntex\.gz$']
+    " open NERDTree automatically when vim starts up if no files were specified
+    "autocmd StdinReadPre * let s:std_in=1
+    "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
     " syntax checking plugin
     Plug 'w0rp/ale'
@@ -63,6 +67,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     Plug 'lervag/vimtex', { 'for': 'tex' }
     let g:tex_flavor='latex'
     let g:vimtex_view_method='skim'
+    let g:vimtex_toc_config={'show_help': 0, 'layers': ['content'], 'tocdepth': 2, 'refresh_always': 1}
     " let g:tex_fast = ""
 
     " Plug '907th/vim-auto-save'
@@ -143,6 +148,13 @@ set hidden
 " Makes search act like search in modern browsers
 set incsearch
 
+" Stop highlighting after search https://github.com/vim/vim/pull/2198
+augroup vimrc-incsearch-highlight
+  autocmd!
+  autocmd CmdlineEnter [/\?] :set hlsearch
+  autocmd CmdlineLeave [/\?] :set nohlsearch
+augroup END
+
 " ADD byte offset to status line
 " set statusline+=%o
 
@@ -178,8 +190,12 @@ set clipboard^=unnamed,unnamedplus
 " more bash like completion
 set wildmode=longest,list,full
 
-" no line wrapping
+" no line wrapping (except for *.tex)
 set nowrap
+augroup WrapLineInTeXFile
+    autocmd!
+    autocmd FileType tex setlocal wrap
+augroup END
 
 " ----- INDENTATION -----
 " http://stackoverflow.com/questions/2861627/paste-in-insert-mode
@@ -227,7 +243,8 @@ nnoremap <leader>ne :NERDTree<cr>
 
 " ----- VIM GUI SETTINGS -----
 if has("gui_running")
-    set guifont=Menlo\ Regular:h15
+    set guifont=Meslo\ LG\ M\ for\ Powerline:h15
+    set macthinstrokes
 endif
 
 " ----- DEFAULT VIMRC -----
