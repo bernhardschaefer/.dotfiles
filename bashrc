@@ -164,6 +164,8 @@ alias gcs='git commit -S'
 alias gd='git diff'
 alias gds='git diff --staged'
 
+alias gl='git pull'
+
 alias gm='git merge'
 alias gmom='git merge origin/master'
 alias gmt='git mergetool --no-prompt'
