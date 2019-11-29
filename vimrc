@@ -19,7 +19,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     endif
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    let NERDTreeIgnore = ['\.pyc$', '\.aux$', '\.bbl$', '\.blg$', '\.fdb_latexmk$', '\.fls$', '\.syntex\.gz$']
+    let NERDTreeRespectWildIgnore=1
     " open NERDTree automatically when vim starts up if no files were specified
     "autocmd StdinReadPre * let s:std_in=1
     "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -97,6 +97,9 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     endif
 endif
 
+" see :h ft-text-syntax
+let g:tex_comment_nospell=1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -132,7 +135,7 @@ syntax on
 set wildmenu
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc
+set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.bcf,*.blg,*.fdb_latexmk,*.fls,*.out,*.run.xml,*.synctex.gz,*.toc
 if has("win16") || has("win32")
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 else
