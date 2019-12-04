@@ -87,6 +87,8 @@ fi
 alias cp='cp -v'
 alias mv='mv -v'
 
+alias latexrm='rm -f *.aux *.bcf *.bbl *.blg *.fdb_latexmk *.fls *.log *.out *.run.xml *.synctex.gz *.toc'
+
 # --- fzf & fd ---
 if [ -d ~/.fzf ]; then
     FZF_HOME=~/.fzf
