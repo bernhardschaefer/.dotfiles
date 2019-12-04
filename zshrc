@@ -87,7 +87,10 @@ fi
 alias cp='cp -v'
 alias mv='mv -v'
 
-alias latexrm='rm -f *.aux *.bcf *.bbl *.blg *.fdb_latexmk *.fls *.log *.out *.run.xml *.synctex.gz *.toc'
+function latexrm () {
+    readonly pfx=${1:?"The file prefix must be specified."}
+    rm -f ${pfx}.aux ${pfx}.bcf ${pfx}.bbl ${pfx}.blg ${pfx}.fdb_latexmk ${pfx}.fls ${pfx}.log ${pfx}.out ${pfx}.run.xml ${pfx}.synctex* ${pfx}.toc
+}
 
 # --- fzf & fd ---
 if [ -d ~/.fzf ]; then
