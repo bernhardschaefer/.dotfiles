@@ -33,6 +33,8 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     " git wrapper with commands such as :Gstatus (see :help fugitive)
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-surround'
+    " for latex surround: https://github.com/tpope/vim-surround/issues/47
+    let g:surround_{char2nr('c')} = "\\\1command\1{\r}"
 
     Plug 'christoomey/vim-tmux-navigator'
 
@@ -97,21 +99,10 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     endif
 endif
 
-" see :h ft-text-syntax
-let g:tex_comment_nospell=1
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Airline
+" => General (Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set laststatus=2 " Always display the statusline in all windows
-let g:airline_powerline_fonts = 1
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-
-" Mostly stolen from https://github.com/amix/vimrc/blob/master/vimrcs/basic.vim
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => General
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=700
 
@@ -123,10 +114,31 @@ let g:mapleader = ","
 let maplocalleader = ","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VIM user interface
+" => Latex
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ----- COLOR SCHEME -----
+" see :h ft-text-syntax
+let g:tex_comment_nospell=1
+
+set spell
+set spelllang=en
+set spellfile=$HOME/.dotfiles/vim/spell/en.utf-8.add
+
+" \emph
+nnoremap <leader>em viw<esc>a}<esc>bi\emph{<esc>
+vnoremap <leader>em <esc>`>a}<esc>`<i\emph{<esc>%
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Airline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set laststatus=2 " Always display the statusline in all windows
+let g:airline_powerline_fonts = 1
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => VIM user interface
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set background=light
 syntax on
