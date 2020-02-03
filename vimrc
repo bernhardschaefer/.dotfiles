@@ -128,6 +128,10 @@ set spellfile=$HOME/.dotfiles/vim/spell/en.utf-8.add
 nnoremap <leader>em viw<esc>a}<esc>bi\emph{<esc>
 vnoremap <leader>em <esc>`>a}<esc>`<i\emph{<esc>%
 
+" \cite
+nnoremap <leader>ci viw<esc>a}<esc>bi~\cite{<esc>
+vnoremap <leader>ci <esc>`>a}<esc>`<i~\cite{<esc>%
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
