@@ -89,7 +89,7 @@ alias mv='mv -v'
 
 function latexrm () {
     readonly pfx=${1:?"The file prefix must be specified."}
-    rm -f ${pfx}.aux ${pfx}.bcf ${pfx}.bbl ${pfx}.blg ${pfx}.fdb_latexmk ${pfx}.fls ${pfx}.log ${pfx}.out ${pfx}.run.xml ${pfx}.synctex* ${pfx}.toc
+    rm -f ${pfx}.aux ${pfx}.bcf ${pfx}.bbl ${pfx}.blg ${pfx}.dvi ${pfx}.fdb_latexmk ${pfx}.fls ${pfx}.log ${pfx}.out ${pfx}.run.xml ${pfx}.synctex ${pfx}.synctex.gz ${pfx}.toc
 }
 
 # --- fzf & fd ---
