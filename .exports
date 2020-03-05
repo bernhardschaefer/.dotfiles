@@ -80,21 +80,8 @@ pathappend /opt/eclipse/eclipse-default
 # --- Anaconda 3 ---
 pathprepend ~/anaconda3/bin ~/miniconda/bin /opt/anaconda/anaconda3/bin /usr/local/anaconda3/bin
 
-# --- EnergyPlus & BCVTB ---
-if [ -d /Applications/bcvtb ]; then
-    export BCVTB_HOME=/Applications/bcvtb
-    export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$BCVTB_HOME/lib/util/libbcvtb.dylib"
-elif [ -d ~/bcvtb ]; then
-    export BCVTB_HOME=~/bcvtb
-fi
-export BCVTB_JNI_DIR="$JAVA_HOME/include"
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f ~/ws/google-cloud-sdk/path.zsh.inc ]; then . ~/ws/google-cloud-sdk/path.zsh.inc; fi
 
-if [ -d /Applications/EnergyPlus-8-5-0 ]; then
-    export EPLUS_HOME=/Applications/EnergyPlus-8-5-0
-    pathappend $EPLUS_HOME
-fi
-if [ -d /usr/local/EnergyPlus-8-5-0 ]; then
-    export EPLUS_HOME=/usr/local/EnergyPlus-8-5-0
-    pathappend $EPLUS_HOME
-fi
-
+# The next line enables shell command completion for gcloud.
+if [ -f ~/ws/google-cloud-sdk/completion.zsh.inc ]; then . ~/ws/google-cloud-sdk/completion.zsh.inc; fi
