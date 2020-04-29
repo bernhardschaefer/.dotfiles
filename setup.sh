@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -o errexit
+
 cd
 if [ ! -d ~/.dotfiles ]; then
     git clone https://github.com/bernhardschaefer/.dotfiles.git
@@ -14,10 +16,6 @@ ln -fvs $DIR/vimrc ~/.vimrc
 ln -fvs $DIR/.exports ~/.exports
 ln -fvs $DIR/.condarc ~/.condarc
 ln -fvs $DIR/.fdignore ~/.fdignore
-
-# jupyter lab
-#mkdir -p ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/
-#ln -fvs $DIR/jupyter/plugin.jupyterlab-settings ~/.jupyter/lab/user-settings/@jupyterlab/shortcuts-extension/plugin.jupyterlab-settings
 
 # tmux
 if [ ! -d ~/.tmux ]; then

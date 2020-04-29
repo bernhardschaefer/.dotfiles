@@ -244,6 +244,7 @@ nnoremap <c-l> <c-w>l
 
 " Control mode mappings:
 cnoremap w!! w !sudo tee > /dev/null %
+cnoremap <C-A> <Home>
 
 " shortcut for NERDTree
 nnoremap <leader>ne :NERDTree<cr>
