@@ -1,6 +1,12 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# --- ohmyzsh agnoster theme ---
+# somehow SOLARIZED_THEME settings does not work, but CURRENT_FG
+export SOLARIZED_THEME='light'
+export CURRENT_FG='white'
+export DEFAULT_USER=$(whoami)
+
 pathappend() {
   for ARG in "$@"
   do
