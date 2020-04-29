@@ -124,14 +124,6 @@ set spell
 set spelllang=en
 set spellfile=$HOME/.dotfiles/vim/spell/en.utf-8.add
 
-" \emph
-nnoremap <leader>em viw<esc>a}<esc>bi\emph{<esc>
-vnoremap <leader>em <esc>`>a}<esc>`<i\emph{<esc>%
-
-" \cite
-nnoremap <leader>ci viw<esc>a}<esc>bi~\cite{<esc>
-vnoremap <leader>ci <esc>`>a}<esc>`<i~\cite{<esc>%
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Airline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -252,10 +244,6 @@ nnoremap <c-l> <c-w>l
 
 " Control mode mappings:
 cnoremap w!! w !sudo tee > /dev/null %
-
-" ----- NERDTree -----
-" don't show .pyc files in tree
-let NERDTreeIgnore = ['\.pyc$']
 
 " shortcut for NERDTree
 nnoremap <leader>ne :NERDTree<cr>
