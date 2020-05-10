@@ -11,6 +11,7 @@ brew "cookiecutter"
 brew "coreutils"
 brew "diff-pdf"
 brew "fd"
+brew "ffmpeg"
 brew "fzf"
 brew "gcc"
 brew "git"
@@ -60,8 +61,9 @@ cask "vlc"
 cask "zoomus"
 cask "zotero"
 mas "Amphetamine", id: 937984704
+mas "iMovie", id: 408981434
 mas "Magnet", id: 441258766
+mas "Microsoft To Do", id: 1274495053
 mas "The Unarchiver", id: 425424353
 mas "WhatsApp", id: 1147396723
-mas "Wunderlist", id: 410628904
 mas "Xcode", id: 497799835
