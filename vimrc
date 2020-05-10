@@ -6,23 +6,26 @@ if has('nvim')
     runtime! plugin/python_setup.vim
 endif
 
+let mapleader = ","
+let g:mapleader = ","
+let maplocalleader = ","
+
 " vim-plug
 " Installation:
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 if filereadable($HOME . "/.vim/autoload/plug.vim")
     call plug#begin('~/.vim/plugged')
 
-    if isdirectory('/usr/local/opt/fzf')
-        Plug '/usr/local/opt/fzf'
-    elseif isdirectory($HOME . "/.fzf")
-        Plug '~/.fzf'
-    endif
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+      nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    let NERDTreeRespectWildIgnore=1
-    " open NERDTree automatically when vim starts up if no files were specified
-    "autocmd StdinReadPre * let s:std_in=1
-    "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+      let NERDTreeRespectWildIgnore=1
+      " open NERDTree automatically when vim starts up if no files were specified
+      "autocmd StdinReadPre * let s:std_in=1
+      "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+      nnoremap <leader>ne :NERDTree<cr>
 
     " syntax checking plugin
     Plug 'w0rp/ale'
@@ -108,10 +111,6 @@ set history=700
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
-let mapleader = ","
-let g:mapleader = ","
-let maplocalleader = ","
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Latex
@@ -245,9 +244,6 @@ nnoremap <c-l> <c-w>l
 " Control mode mappings:
 cnoremap w!! w !sudo tee > /dev/null %
 cnoremap <C-A> <Home>
-
-" shortcut for NERDTree
-nnoremap <leader>ne :NERDTree<cr>
 
 " ----- VIM GUI SETTINGS -----
 if has("gui_running")
