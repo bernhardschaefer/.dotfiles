@@ -73,10 +73,6 @@ source $ZSH/oh-my-zsh.sh
 # bash-like ctrl-u behavior
 bindkey "^u" backward-kill-line
 
-if type mvim > /dev/null; then
-    alias vim='mvim -v'
-fi
-
 # --- aliases ---
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -90,6 +86,12 @@ alias mv='mv -v'
 function latexrm () {
     readonly pfx=${1:?"The file prefix must be specified."}
     rm -f ${pfx}.aux ${pfx}.bcf ${pfx}.bbl ${pfx}.blg ${pfx}.dvi ${pfx}.fdb_latexmk ${pfx}.fls ${pfx}.log ${pfx}.out ${pfx}.run.xml ${pfx}.synctex ${pfx}.synctex.gz ${pfx}.toc
+}
+
+function latexrmall () {
+    for ext in aux bcf bbl blg dvi fdb_latexmk fls log out run.xml synctex synctex.gz toc; do
+        rm *.${ext}
+    done
 }
 
 # --- fzf & fd ---

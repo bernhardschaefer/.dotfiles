@@ -18,7 +18,8 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
 
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-      nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+      nnoremap <silent> <expr> <Leader>f (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+      nnoremap <silent> <Leader>g        :GFiles<CR>
 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
       let NERDTreeRespectWildIgnore=1
@@ -26,6 +27,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
       "autocmd StdinReadPre * let s:std_in=1
       "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
       nnoremap <leader>ne :NERDTree<cr>
+      let NERDTreeIgnore = ['\.pdf$']
 
     " syntax checking plugin
     Plug 'w0rp/ale'
@@ -35,6 +37,8 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
 
     " git wrapper with commands such as :Gstatus (see :help fugitive)
     Plug 'tpope/vim-fugitive'
+    " enable Gpush output
+    Plug 'tpope/vim-dispatch'
     Plug 'tpope/vim-surround'
     " for latex surround: https://github.com/tpope/vim-surround/issues/47
     let g:surround_{char2nr('c')} = "\\\1command\1{\r}"
@@ -80,7 +84,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     " autocmd FileType tex let g:auto_save = 1
     " autocmd FileType tex let g:auto_save_silent = 1
 
-    Plug 'sirver/ultisnips'
+    Plug 'sirver/ultisnips', { 'for': 'tex' }
       Plug 'honza/vim-snippets'
       let g:UltiSnipsExpandTrigger = '<tab>'
       let g:UltiSnipsJumpForwardTrigger = '<tab>'
@@ -142,7 +146,7 @@ syntax on
 set wildmenu
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.bcf,*.blg,*.fdb_latexmk,*.fls,*.out,*.run.xml,*.synctex.gz,*.toc
+set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.bcf,*.blg,*.fdb_latexmk,*.fls,*.log,*.out,*.run.xml,*.synctex.gz,*.toc
 if has("win16") || has("win32")
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 else
