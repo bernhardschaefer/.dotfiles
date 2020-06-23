@@ -10,7 +10,9 @@ fi
 # create symlinks
 DIR=~/.dotfiles
 ln -fvs $DIR/zshrc ~/.zshrc
-mv -v ~/.bashrc ~/.bashrc.old
+if [ -f ~/.bashrc ]; then
+    mv -v ~/.bashrc ~/.bashrc.old
+fi
 ln -vs $DIR/bashrc ~/.bashrc
 ln -fvs $DIR/vimrc ~/.vimrc
 ln -fvs $DIR/.exports ~/.exports
@@ -28,4 +30,4 @@ fi
 git config --global user.name "Bernhard Schäfer"
 
 # macvim enable thin fonts
-defaults write org.vim.MacVim AppleFontSmoothing -int 0  
+#defaults write org.vim.MacVim AppleFontSmoothing -int 0
