@@ -84,20 +84,25 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     " autocmd FileType tex let g:auto_save = 1
     " autocmd FileType tex let g:auto_save_silent = 1
 
-    Plug 'sirver/ultisnips', { 'for': 'tex' }
-      Plug 'honza/vim-snippets'
-      let g:UltiSnipsExpandTrigger = '<tab>'
-      let g:UltiSnipsJumpForwardTrigger = '<tab>'
-      let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
-
-    Plug 'godlygeek/tabular', { 'for': 'markdown' }
-    Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
-    let g:markdown_enable_spell_checking = 0
-
+    Plug 'ervandew/supertab'
     " https://github.com/ycm-core/YouCompleteMe/issues/1751#issuecomment-273380629
     " Make sure anaconda python is not in PATH during installation:
     " https://github.com/ycm-core/YouCompleteMe/issues/1241#issuecomment-335051278
     Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+    Plug 'sirver/ultisnips', { 'for': 'tex' }
+    Plug 'honza/vim-snippets'
+    "
+    " https://stackoverflow.com/a/22253548
+    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+    let g:SuperTabDefaultCompletionType = '<C-n>'
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:UltiSnipsJumpForwardTrigger = "<tab>"
+    let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+    Plug 'godlygeek/tabular', { 'for': 'markdown' }
+    Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
+    let g:markdown_enable_spell_checking = 0
 
     call plug#end()
 
