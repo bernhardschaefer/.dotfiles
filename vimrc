@@ -156,7 +156,7 @@ syntax on
 set wildmenu
 
 " Ignore compiled files
-set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.bcf,*.blg,*.fdb_latexmk,*.fls,*.log,*.out,*.run.xml,*.synctex.gz,*.toc
+set wildignore=*.o,*~,*.pyc,*.aux,*.bbl,*.bcf,*.blg,*.bst,*.dvi,*.fdb_latexmk,*.fls,*.log,*.out,*.run.xml,*.synctex.gz,*.toc
 if has("win16") || has("win32")
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 else
