@@ -85,7 +85,8 @@ alias mv='mv -v'
 
 # Exclude OSX specific files in ZIP archives
 # https://www.reddit.com/r/osx/comments/626sk2/how_to_prevent_hidden_mac_files_from_being_added/
-alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
+# TODO this breaks zip -d command
+# alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble*"
 
 function latexrm () {
     readonly pfx=${1:?"The file prefix must be specified."}
