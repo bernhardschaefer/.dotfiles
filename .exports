@@ -40,9 +40,9 @@ export EDITOR=$(which vim)
 export GIT_EDITOR=/usr/bin/vim
 
 # --- Java ---
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    export JAVA_HOME=$(/usr/libexec/java_home)
-fi
+#if [[ "$OSTYPE" == "darwin"* ]]; then
+#    export JAVA_HOME=$(/usr/libexec/java_home)
+#fi
 
 # --- fzf & fd ---
 
