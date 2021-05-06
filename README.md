@@ -27,4 +27,8 @@ macOS
 -------
 
 - Accessibility -> Desktop -> Reduce motion
+- Fix blurry fonts on external monitor: https://osxdaily.com/2018/09/26/fix-blurry-thin-fonts-text-macos-mojave/
+```shell
+defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+```
 
