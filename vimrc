@@ -88,7 +88,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     " https://github.com/ycm-core/YouCompleteMe/issues/1751#issuecomment-273380629
     " Make sure anaconda python is not in PATH during installation:
     " https://github.com/ycm-core/YouCompleteMe/issues/1241#issuecomment-335051278
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+    "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
     Plug 'sirver/ultisnips', { 'for': 'tex' }
     Plug 'honza/vim-snippets'
     "
@@ -103,6 +103,9 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     Plug 'godlygeek/tabular', { 'for': 'markdown' }
     Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
     let g:markdown_enable_spell_checking = 0
+
+    " make gx work again
+    Plug 'felipec/vim-sanegx'
 
     call plug#end()
 
