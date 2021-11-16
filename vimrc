@@ -88,7 +88,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     " https://github.com/ycm-core/YouCompleteMe/issues/1751#issuecomment-273380629
     " Make sure anaconda python is not in PATH during installation:
     " https://github.com/ycm-core/YouCompleteMe/issues/1241#issuecomment-335051278
-    "Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+    Plug 'Valloric/YouCompleteMe', { 'do': '/usr/bin/python3 install.py' }
     Plug 'sirver/ultisnips', { 'for': 'tex' }
     Plug 'honza/vim-snippets'
     "
