@@ -101,8 +101,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
     Plug 'godlygeek/tabular', { 'for': 'markdown' }
-    Plug 'gabrielelana/vim-markdown', { 'for': 'markdown' }
-    let g:markdown_enable_spell_checking = 0
+    Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 
     " make gx work again
     Plug 'felipec/vim-sanegx'
