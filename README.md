@@ -8,8 +8,9 @@ wget -O - https://raw.githubusercontent.com/bernhardschaefer/.dotfiles/master/se
 iTerm
 --------
 
+- see also: https://gist.github.com/kevin-smets/8568070
 - Setup iTerm2 solarized profile: Profiles → Colors → Color Presets... → Solarized Light
-- Enable word jumps in iTerm2: Preferences → Profiles → Keys → Load Preset... → Natural Text Editing
+- Enable word jumps in iTerm2: Preferences → Profiles → Keys → Key Mappings → Presets... → Natural Text Editing
 - Key bindings and fuzzy completion for fzf: `$(brew --prefix)/opt/fzf/install`
 
 conda
