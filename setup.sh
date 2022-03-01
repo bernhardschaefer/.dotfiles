@@ -22,6 +22,9 @@ ln -fvs $DIR/.fdignore ~/.fdignore
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Powerlevel10k font (automatically installs when opening a new iterm2 window)
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
 # vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

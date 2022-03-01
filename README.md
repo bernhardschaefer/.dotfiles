@@ -8,8 +8,7 @@ wget -O - https://raw.githubusercontent.com/bernhardschaefer/.dotfiles/master/se
 iTerm
 --------
 
-- Install [Powerline Fonts](https://github.com/powerline/fonts)
-- Setup iTerm2 solarized profile with Menlo Powerline font and Solarized colorscheme
+- Setup iTerm2 solarized profile: Profiles → Colors → Color Presets... → Solarized Light
 - Enable word jumps in iTerm2: Preferences → Profiles → Keys → Load Preset... → Natural Text Editing
 - Key bindings and fuzzy completion for fzf: `$(brew --prefix)/opt/fzf/install`
 
