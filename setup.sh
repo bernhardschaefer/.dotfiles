@@ -19,6 +19,9 @@ ln -fvs $DIR/.exports ~/.exports
 ln -fvs $DIR/.condarc ~/.condarc
 ln -fvs $DIR/.fdignore ~/.fdignore
 
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
 # tmux
 if [ ! -d ~/.tmux ]; then
     cd
