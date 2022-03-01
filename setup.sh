@@ -22,6 +22,9 @@ ln -fvs $DIR/.fdignore ~/.fdignore
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # tmux
 if [ ! -d ~/.tmux ]; then
     cd
