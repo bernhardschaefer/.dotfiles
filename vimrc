@@ -103,6 +103,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     Plug 'godlygeek/tabular', { 'for': 'markdown' }
     Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
     let g:vim_markdown_new_list_item_indent = 2
+    autocmd FileType markdown setlocal nospell
 
     " make gx work again
     Plug 'felipec/vim-sanegx'
@@ -135,6 +136,8 @@ set autoread
 
 " see :h ft-text-syntax
 let g:tex_comment_nospell=1
+
+autocmd FileType bib setlocal nospell
 
 set spell
 set spelllang=en

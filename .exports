@@ -46,6 +46,8 @@ export GIT_EDITOR=/usr/bin/vim
 
 # --- fzf & fd ---
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if type fd &> /dev/null; then
     # Setting fd as the default source for fzf
     export FZF_DEFAULT_COMMAND='fd --type f'
