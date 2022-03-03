@@ -267,7 +267,8 @@ cnoremap <C-A> <Home>
 
 " ----- VIM GUI SETTINGS -----
 if has("gui_running")
-    set guifont=MesloLGS-NF-Regular:h15
+    set guifont=MesloLGS-NF-Regular:h17
+    " macthinstrokes seems to be broken since Big Sur: https://github.com/macvim-dev/macvim/issues/1188
     set macthinstrokes
 endif
 

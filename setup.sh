@@ -27,6 +27,8 @@ git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerl
 
 # vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# MacVim thin strokes
+defaults write org.vim.MacVim AppleFontSmoothing -int 0
 
 # tmux
 if [ ! -d ~/.tmux ]; then
