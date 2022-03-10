@@ -2,7 +2,7 @@ Setup
 --------
 
 ```shell
-wget -O - https://raw.githubusercontent.com/bernhardschaefer/.dotfiles/master/setup.sh | bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bernhardschaefer/.dotfiles/master/setup.sh)"
 ```
 
 iTerm
