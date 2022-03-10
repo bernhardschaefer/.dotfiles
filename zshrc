@@ -16,7 +16,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# Note: deactivated since it's installed using Brew
+#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -136,18 +137,7 @@ function latexrmall () {
 }
 
 # --- fzf & fd ---
-if [ -d ~/.fzf ]; then
-    FZF_HOME=~/.fzf
-elif [ -d /usr/local/opt/fzf ]; then
-    FZF_HOME=/usr/local/opt/fzf
-fi
-if [ $FZF_HOME ]; then
-    if [[ ! "$PATH" == *$FZF_HOME/bin* ]]; then
-        export PATH="$PATH:$FZF_HOME/bin"
-    fi
-    [[ $- == *i* ]] && source "$FZF_HOME/shell/completion.zsh" 2> /dev/null
-    source "$FZF_HOME/shell/key-bindings.zsh"
-fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # workaround since ALT-c does not work on macOS:
 # sdf - cd to selected directory
@@ -156,6 +146,8 @@ bindkey '^X^X' fzf-cd-widget
 source ~/.exports
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+test -e /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme && source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
