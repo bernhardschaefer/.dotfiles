@@ -9,8 +9,9 @@ iTerm
 --------
 
 - see also: https://gist.github.com/kevin-smets/8568070
-- Setup iTerm2 solarized profile: Profiles → Colors → Color Presets... → Solarized Light
-- Enable word jumps in iTerm2: Preferences → Profiles → Keys → Key Mappings → Presets... → Natural Text Editing
+- Solarized profile: Profiles → Colors → Color Presets... → Solarized Light
+- Enable word jumps: Profiles → Keys → Key Mappings → Presets... → Natural Text Editing
+- Disable Bell:      Profiles → Terminal → Notifications → Silence bell
 - Key bindings and fuzzy completion for fzf: `$(brew --prefix)/opt/fzf/install`
 
 conda
