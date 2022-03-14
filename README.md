@@ -5,7 +5,7 @@ Setup
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/bernhardschaefer/.dotfiles/master/setup.sh)"
 ```
 
-iTerm
+iTerm2
 --------
 
 - see also: https://gist.github.com/kevin-smets/8568070
@@ -13,16 +13,6 @@ iTerm
 - Enable word jumps: Profiles → Keys → Key Mappings → Presets... → Natural Text Editing
 - Disable Bell:      Profiles → Terminal → Notifications → Silence bell
 - Key bindings and fuzzy completion for fzf: `$(brew --prefix)/opt/fzf/install`
-
-conda
--------
-
-New env:
-```
-conda create -n py37-ds -y python=3.7 numpy pandas jupyterlab seaborn matplotlib
-conda activate py37-ds
-jupyter labextension install @jupyterlab/toc
-```
 
 macOS
 -------
