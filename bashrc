@@ -103,7 +103,7 @@ export TERM=xterm-256color
 # --- PS1 ---
 #export PS1='\u@\h:\w$(__git_ps1 " (%s)")\$ '
 
-# --- fzf & fd ---
+# --- fzf ---
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # --- git aliases (copied from zsh git plugin) ---
@@ -190,5 +190,20 @@ alias gsu='git submodule update'
 
 alias gts='git tag -s'
 alias gtv='git tag | sort -V'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/mambaforge/base/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/mambaforge/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 source ~/.exports

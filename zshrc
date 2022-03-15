@@ -136,7 +136,7 @@ function latexrmall () {
     done
 }
 
-# --- fzf & fd ---
+# --- fzf ---
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # workaround since ALT-c does not work on macOS:
