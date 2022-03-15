@@ -37,3 +37,4 @@ if [ ! -d ~/.tmux ]; then
 fi
 
 git config --global user.name "Bernhard Schäfer"
+git config --global init.defaultBranch main
