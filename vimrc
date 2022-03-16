@@ -77,6 +77,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     let g:tex_flavor='latex'
     let g:vimtex_view_method='skim'
     let g:vimtex_toc_config={'show_help': 0, 'layers': ['content'], 'tocdepth': 2, 'refresh_always': 1}
+    let g:vimtex_quickfix_ignore_filters = ['Underfull', 'Overfull']
     " let g:tex_fast = ""
 
     " Plug '907th/vim-auto-save'
