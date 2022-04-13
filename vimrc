@@ -77,7 +77,7 @@ if filereadable($HOME . "/.vim/autoload/plug.vim")
     let g:tex_flavor='latex'
     let g:vimtex_view_method='skim'
     let g:vimtex_toc_config={'show_help': 0, 'layers': ['content'], 'tocdepth': 2, 'refresh_always': 1}
-    let g:vimtex_quickfix_ignore_filters = ['Underfull', 'Overfull']
+    " let g:vimtex_quickfix_ignore_filters = ['Underfull', 'Overfull']
     " let g:tex_fast = ""
 
     " Plug '907th/vim-auto-save'
@@ -293,3 +293,34 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
       \ | wincmd p | diffthis
 endif
+
+
+" copied from gabrielelana/vim-markdown plugin
+" https://github.com/gabrielelana/vim-markdown/blob/master/autoload/markdown.vim#L504
+function! SwitchStatus()
+  let current_line = getline('.')
+  if match(current_line, '^\s*[*\-+] \[ \]') >= 0
+    call setline('.', substitute(current_line, '^\(\s*[*\-+]\) \[ \]', '\1 [x]', ''))
+    return
+  endif
+  if match(current_line, '^\s*[*\-+] \[x\]') >= 0
+    call setline('.', substitute(current_line, '^\(\s*[*\-+]\) \[x\]', '\1', ''))
+    return
+  endif
+  if match(current_line, '^\s*[*\-+] \(\[[x ]\]\)\@!') >= 0
+    call setline('.', substitute(current_line, '^\(\s*[*\-+]\)', '\1 [ ]', ''))
+    return
+  endif
+  if match(current_line, '^\s*#\{1,5}\s') >= 0
+    call setline('.', substitute(current_line, '^\(\s*#\{1,5}\) \(.*$\)', '\1# \2', ''))
+    return
+  endif
+  if match(current_line, '^\s*#\{6}\s') >= 0
+    call setline('.', substitute(current_line, '^\(\s*\)#\{6} \(.*$\)', '\1# \2', ''))
+    return
+  endif
+endfunction
+" }}}
+
+autocmd FileType markdown nnoremap <silent> <Space> :call SwitchStatus()<CR>
+
