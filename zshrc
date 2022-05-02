@@ -150,6 +150,11 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 test -e /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme && source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 test -e /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme && source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
+# --- python ---
+
+# create an IPython kernel for the currently active conda environment
+alias addkernel='python -m ipykernel install --user --name "${CONDA_DEFAULT_ENV}" --display-name "$(python -V) (${CONDA_DEFAULT_ENV})"'
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/opt/homebrew/Caskroom/mambaforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
