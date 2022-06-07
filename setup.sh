@@ -9,6 +9,7 @@ fi
 
 # create symlinks
 DIR=~/.dotfiles
+# TODO create function that creates a backup for each file if exists (and has according echo)
 ln -fvs $DIR/zshrc ~/.zshrc
 if [ -f ~/.bashrc ]; then
     mv -v ~/.bashrc ~/.bashrc.old

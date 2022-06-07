@@ -23,3 +23,10 @@ macOS
 defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
 ```
 
+Python
+-----
+
+Install nbdime and enable globally (changes ~/.gitconfig)
+```shell
+nbdime config-git --enable --global
+```
