@@ -26,7 +26,7 @@ pathprepend() {
 }
 
 # If you come from bash you might have to change your $PATH.
-pathprepend $HOME/bin /usr/local/bin
+pathprepend ${HOME}/bin /usr/local/bin ${HOME}/.local/bin
 
 # unix
 #export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
@@ -81,3 +81,5 @@ pathappend /opt/eclipse/eclipse-default
 #export PYSPARK_DRIVER_PYTHON="jupyter"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
