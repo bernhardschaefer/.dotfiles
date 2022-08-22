@@ -41,5 +41,6 @@ fi
 git config --global user.name "Bernhard Schäfer"
 git config --global init.defaultBranch main
 git config --global pull.rebase true
+git config --global rebase.autoStash true
 git config --global fetch.prune true
 git config --global diff.colorMoved zebra
