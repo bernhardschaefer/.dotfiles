@@ -173,3 +173,11 @@ if [ -f "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/mamba.sh" ]; then
     . "/opt/homebrew/Caskroom/mambaforge/base/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+
+# --- homebrew zsh-completions ---
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+  autoload -Uz compinit
+  compinit
+fi
