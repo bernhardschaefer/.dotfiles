@@ -17,6 +17,9 @@ iTerm2
 macOS
 -------
 
+Disable Cmd+Shift+A shortcut so that it can be used in PyCharm:
+- https://intellij-support.jetbrains.com/hc/en-us/articles/360005137400-Cmd-Shift-A-hotkey-opens-Terminal-with-apropos-search-instead-of-the-Find-Action-dialog
+
 - Accessibility -> Desktop -> Reduce motion
 - Fix blurry fonts on external monitor: https://osxdaily.com/2018/09/26/fix-blurry-thin-fonts-text-macos-mojave/
 ```shell
