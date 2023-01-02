@@ -67,9 +67,6 @@ if type fd &> /dev/null; then
     export FZF_ALT_C_COMMAND="fd --type d"
 fi
 
-# --- Eclipse ---
-pathappend /opt/eclipse/eclipse-default
-
 # --- Spark ---
 #if [ -d /opt/spark/spark-default ]; then
 #    export SPARK_HOME=/opt/spark/spark-default
