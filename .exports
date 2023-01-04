@@ -31,9 +31,6 @@ pathprepend ${HOME}/bin /usr/local/bin ${HOME}/.local/bin
 # unix
 #export GREP_OPTIONS='--color=auto --exclude=*.pyc --exclude=.* --exclude-dir=.*'
 
-# --- MAC OS bin path ---
-pathappend ~/.local/bin
-
 # --- VIM ---
 export EDITOR=$(which vim)
 # git does not work with mvim aliased vim
@@ -78,5 +75,3 @@ fi
 #export PYSPARK_DRIVER_PYTHON="jupyter"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
