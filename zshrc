@@ -79,7 +79,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(macos git poetry)
+plugins=(macos git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -147,8 +147,7 @@ source ~/.exports
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-test -e /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme && source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
-test -e /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme && source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+test -e $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme && source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # --- python ---
 
