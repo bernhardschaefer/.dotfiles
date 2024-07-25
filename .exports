@@ -75,3 +75,43 @@ fi
 #export PYSPARK_DRIVER_PYTHON="jupyter"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook --no-browser --ip='*' --port=8888"
 #export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
+
+LANGFUSE_HOME="${HOME}/ws/langfuse"
+
+langfuse_run() {
+    colima start default
+    cd "${LANGFUSE_HOME}" || return
+    docker compose up -d
+    open "http://localhost:3000"
+}
+
+langfuse_down() {
+    cd "${LANGFUSE_HOME}" || return
+    docker compose down
+}
+
+langfuse_update() {
+    cd "${LANGFUSE_HOME}" || return
+    docker compose down
+    git pull
+    docker compose pull
+}
+
+alias langfuse='langfuse_command'
+
+langfuse_command() {
+    case $1 in
+        run|start)
+            langfuse_run
+            ;;
+        down|stop)
+            langfuse_down
+            ;;
+        update)
+            langfuse_update
+            ;;
+        *)
+            echo "Usage: langfuse {run|start|down|stop|update}"
+            ;;
+    esac
+}
