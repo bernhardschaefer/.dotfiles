@@ -19,7 +19,6 @@ ln -fvs $DIR/vimrc ~/.vimrc
 ln -fvs $DIR/.exports ~/.exports
 ln -fvs $DIR/.condarc ~/.condarc
 ln -fvs $DIR/.fdignore ~/.fdignore
-ln -fvs $DIR/.p10k.zsh ~/.p10k.zsh
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
