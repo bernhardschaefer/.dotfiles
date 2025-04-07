@@ -180,3 +180,5 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
   compinit
 fi
+
+[ -f "$HOME/.local/bin/env" ] && source "$HOME/.local/bin/env"
