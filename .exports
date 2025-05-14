@@ -37,6 +37,9 @@ export GIT_EDITOR=/usr/bin/vim
 #    export JAVA_HOME=$(/usr/libexec/java_home)
 #fi
 
+# PySpark requires Java <= 17
+pathprepend $(brew --prefix)/opt/openjdk@17/bin
+
 # --- fd ---
 if type fd &> /dev/null; then
     # Setting fd as the default source for fzf
