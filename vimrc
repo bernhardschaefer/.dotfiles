@@ -140,7 +140,8 @@ let g:tex_comment_nospell=1
 
 autocmd FileType bib setlocal nospell
 
-set spell
+" disable spell check by default
+set nospell
 set spelllang=en
 set spellfile=$HOME/.dotfiles/vim/spell/en.utf-8.add
 
@@ -221,12 +222,7 @@ set clipboard^=unnamed,unnamedplus
 " more bash like completion
 set wildmode=longest,list,full
 
-" no line wrapping (except for *.tex)
-set nowrap
-augroup WrapLineInTeXFile
-    autocmd!
-    autocmd FileType tex setlocal wrap
-augroup END
+set wrap
 
 " ----- INDENTATION -----
 " http://stackoverflow.com/questions/2861627/paste-in-insert-mode
