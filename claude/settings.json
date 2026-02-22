@@ -50,6 +50,7 @@
       "Bash(ssh-copy-id *)",
       "Read(.env)",
       "Read(id_rsa)"
+    ]
   },
   "statusLine": {
     "type": "command",
