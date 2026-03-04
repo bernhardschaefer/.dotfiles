@@ -15,6 +15,8 @@
       "Bash(uv run pytest *)",
       "Bash(uv run ruff *)",
       "Bash(uv run python *)",
+      "Bash(git diff *)",
+      "Bash(git show *)",
       "Bash(git push *)",
       "Bash(git commit *)",
       "Bash(git add *)",
@@ -31,7 +33,8 @@
       "Bash(gh run list *)",
       "Bash(gh run view *)",
       "Bash(gh run watch *)",
-      "Bash(gh issue view *)"
+      "Bash(gh issue view *)",
+      "Bash(tee *)"
     ],
     "deny": [
       "Bash(sudo *)",
@@ -52,9 +55,9 @@
       "Read(id_rsa)"
     ]
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "~/.dotfiles/claude/context-bar.sh"
-  },
-  "model": "opus"
+  }
 }
